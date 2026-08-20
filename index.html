@@ -52,6 +52,86 @@
     * {
       -webkit-tap-highlight-color: transparent;
     }
+
+    /* Dynamic Animated Tinted Glass Navbar */
+    @keyframes dynamicGlassGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .navbar-links-wrapper {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(238, 246, 255, 0.72) 35%, rgba(255, 245, 238, 0.75) 70%, rgba(255, 255, 255, 0.88) 100%) !important;
+      background-size: 250% 250% !important;
+      animation: dynamicGlassGlow 10s ease infinite !important;
+      -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+      backdrop-filter: blur(24px) saturate(190%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.90) !important;
+      box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.12), 0 2px 8px 0 rgba(151, 168, 187, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95) !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .navbar-links-wrapper:hover {
+      box-shadow: 0 14px 40px 0 rgba(0, 0, 0, 0.16), 0 4px 14px 0 rgba(151, 168, 187, 0.25), inset 0 1px 2px 0 #ffffff !important;
+      border-color: #ffffff !important;
+    }
+
+    .navbar-link {
+      color: rgba(20, 20, 20, 0.85) !important;
+      font-weight: 500 !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      border-radius: 3.13rem !important;
+    }
+
+    .navbar-link:hover {
+      color: #000000 !important;
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .navbar-link.w--current {
+      color: #000000 !important;
+      background: #ffffff !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.90) 100%) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.90) !important;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12), inset 0 1px 2px #ffffff !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      color: #111111 !important;
+    }
+
+    .nav-btn:hover {
+      color: #000000 !important;
+      background: #ffffff !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20) !important;
+      transform: translateY(-2px) scale(1.02) !important;
+    }
+
+    .navbar.is-scrolled {
+      padding-top: 1.2svh !important;
+    }
+
+    .navbar.is-scrolled .navbar-wrapper {
+      background: rgba(255, 255, 255, 0.12);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border-radius: 100px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
   </style>
 </head>
 
@@ -133,7 +213,7 @@
             </a></div>
         </div>
         <div class="navbar-btn"><a href="#" class="button btn-arrow nav-btn w-inline-block">
-            <div>Get in Touch</div>
+            <div>Investor Login</div>
             <div class="icon-arrow">
               <div class="svg-45-arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
                   viewBox="0 0 16 16" fill="none">
@@ -173,7 +253,7 @@
               class="navbar-link w-inline-block w--current">
               <div>Home<br></div>
             </a><a href="#" class="navbar-link w-inline-block">
-              <div>About Us<br></div>
+              <div>EMD<br></div>
             </a><a href="#" class="navbar-link w-inline-block">
               <div>Investment Criteria<br></div>
             </a><a href="#" class="navbar-link w-inline-block">
@@ -263,6 +343,51 @@
           </div>
         </div>
       </section>
+
+      <!-- Ticker scroll start-->
+
+<section class="section_line">
+        <div class="padding-global padding-section-large">
+          <div class="container">
+            <div class="line_cards">
+              <div lumious-ticker-speed-mobile="10" lumious-ticker="true" lumious-ticker-speed="20" class="line_ticker">
+                <div lumious-ticker-content="true" class="line_ticker-content"><img
+                    src="images/68f870ded80be140a878e999_Oakmont_Logo_HORZ_RGB-1024x211%201.avif" loading="lazy"
+                    sizes="(max-width: 518px) 100vw, 518px"
+                    srcset="images/68f870ded80be140a878e999_Oakmont_Logo_HORZ_RGB-1024x211%201-p-500.png 500w, images/68f870ded80be140a878e999_Oakmont_Logo_HORZ_RGB-1024x211%201.avif 518w"
+                    alt="" class="line-logo"><img src="images/68f871d6afb636400006ef4c_image%2022.avif" loading="lazy"
+                    alt="" class="line-logo is-small"><img src="images/68f872130579d52daf9393a6_image%2028.avif"
+                    loading="lazy" alt="" class="line-logo"><img src="images/68f872772108f2e6773968c4_Asset-10%201.avif"
+                    loading="lazy" alt="" class="line-logo"><img
+                    src="images/68f872c5682a0e1eead621a8_FF_ALPINE_02_edited%201.avif" loading="lazy" alt=""
+                    class="line-logo"><img src="images/68f873143ead192db38406d2_2dUDiEulPove2N9It0iJRR1yxU%201.avif"
+                    loading="lazy" alt="" class="line-logo is-small"><img
+                    src="images/68f8734c079b76226d0ee3e7_logo%20%281%29%201.avif" loading="lazy" alt=""
+                    class="line-logo"><img src="images/68f8736e640bb27efbde4de2_logo%201.avif" loading="lazy" alt=""
+                    class="line-logo is-small"><img src="images/68f873971bb871c3a1769165_AVP-logo%201.avif"
+                    loading="lazy" alt="" class="line-logo"><img
+                    src="images/68f873ca5d417dc7bc532a28_new-swoogo-logo-orange%201.avif" loading="lazy" alt=""
+                    class="line-logo is-small"><img
+                    src="images/68f87400eeb92eac22086af7_Chemistrie_Logo_No_BG-2%201.avif" loading="lazy" alt=""
+                    class="line-logo is-small"><img src="images/68f8742008c45aa107a79006_Roxbury%20%2526%20Co..svg"
+                    loading="lazy" alt="" class="line-logo is-small"><img
+                    src="images/68f874516ee6d4ef77e06bbf_logo-no-bg%201.svg" loading="lazy" alt=""
+                    class="line-logo is-big"><img src="images/68f874829e77efcfe212fe9d_unnamed%20%281%29%201.avif"
+                    loading="lazy" alt="" class="line-logo"><img
+                    src="images/68f874afc57740df33f77908_springdale-blackwhite-withbackground%201.avif" loading="lazy"
+                    alt="" class="line-logo is-big"><img src="images/68f874e0ae2807f1d7acd281_unnamed%201.avif"
+                    loading="lazy" alt="" class="line-logo"><img
+                    src="images/68f87508dd879d8a97023145_unnamed%20%282%29%201.avif" loading="lazy" alt=""
+                    class="line-logo"><img src="images/68f8752d6eb74fbaa0dd062e_GranvillePeak_full%201.avif"
+                    loading="lazy" alt="" class="line-logo is-big"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!-- Ticker scroll end-->
+
       <section id="scroll" class="section_family">
         <div class="padding-global padding-section-large is-80-bottom">
           <div class="container">
@@ -333,45 +458,7 @@
           </div>
         </div>
       </section>
-      <section class="section_line">
-        <div class="padding-global padding-section-large">
-          <div class="container">
-            <div class="line_cards">
-              <div lumious-ticker-speed-mobile="10" lumious-ticker="true" lumious-ticker-speed="20" class="line_ticker">
-                <div lumious-ticker-content="true" class="line_ticker-content"><img
-                    src="images/68f870ded80be140a878e999_Oakmont_Logo_HORZ_RGB-1024x211%201.avif" loading="lazy"
-                    sizes="(max-width: 518px) 100vw, 518px"
-                    srcset="images/68f870ded80be140a878e999_Oakmont_Logo_HORZ_RGB-1024x211%201-p-500.png 500w, images/68f870ded80be140a878e999_Oakmont_Logo_HORZ_RGB-1024x211%201.avif 518w"
-                    alt="" class="line-logo"><img src="images/68f871d6afb636400006ef4c_image%2022.avif" loading="lazy"
-                    alt="" class="line-logo is-small"><img src="images/68f872130579d52daf9393a6_image%2028.avif"
-                    loading="lazy" alt="" class="line-logo"><img src="images/68f872772108f2e6773968c4_Asset-10%201.avif"
-                    loading="lazy" alt="" class="line-logo"><img
-                    src="images/68f872c5682a0e1eead621a8_FF_ALPINE_02_edited%201.avif" loading="lazy" alt=""
-                    class="line-logo"><img src="images/68f873143ead192db38406d2_2dUDiEulPove2N9It0iJRR1yxU%201.avif"
-                    loading="lazy" alt="" class="line-logo is-small"><img
-                    src="images/68f8734c079b76226d0ee3e7_logo%20%281%29%201.avif" loading="lazy" alt=""
-                    class="line-logo"><img src="images/68f8736e640bb27efbde4de2_logo%201.avif" loading="lazy" alt=""
-                    class="line-logo is-small"><img src="images/68f873971bb871c3a1769165_AVP-logo%201.avif"
-                    loading="lazy" alt="" class="line-logo"><img
-                    src="images/68f873ca5d417dc7bc532a28_new-swoogo-logo-orange%201.avif" loading="lazy" alt=""
-                    class="line-logo is-small"><img
-                    src="images/68f87400eeb92eac22086af7_Chemistrie_Logo_No_BG-2%201.avif" loading="lazy" alt=""
-                    class="line-logo is-small"><img src="images/68f8742008c45aa107a79006_Roxbury%20%2526%20Co..svg"
-                    loading="lazy" alt="" class="line-logo is-small"><img
-                    src="images/68f874516ee6d4ef77e06bbf_logo-no-bg%201.svg" loading="lazy" alt=""
-                    class="line-logo is-big"><img src="images/68f874829e77efcfe212fe9d_unnamed%20%281%29%201.avif"
-                    loading="lazy" alt="" class="line-logo"><img
-                    src="images/68f874afc57740df33f77908_springdale-blackwhite-withbackground%201.avif" loading="lazy"
-                    alt="" class="line-logo is-big"><img src="images/68f874e0ae2807f1d7acd281_unnamed%201.avif"
-                    loading="lazy" alt="" class="line-logo"><img
-                    src="images/68f87508dd879d8a97023145_unnamed%20%282%29%201.avif" loading="lazy" alt=""
-                    class="line-logo"><img src="images/68f8752d6eb74fbaa0dd062e_GranvillePeak_full%201.avif"
-                    loading="lazy" alt="" class="line-logo is-big"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       <section class="section_aligned">
         <div class="padding-global padding-section-small">
           <div class="container">
@@ -695,7 +782,7 @@
                     <div data-w-id="639ac2c0-2b6d-d8fe-4959-9ca7894df313" class="w-richtext">
                       <blockquote class="team_quote">Championing the growth and success of future ETA entrepreneurs.
                       </blockquote>
-                    </div><a href="https://www.linkedin.com/in/daniel-m-farag/"
+                    </div><a href="#"
                       data-w-id="639ac2c0-2b6d-d8fe-4959-9ca7894df316" target="_blank"
                       class="button is-soc w-inline-block">
                       <div>LinkedIn</div>
@@ -749,7 +836,7 @@
                     <div data-w-id="639ac2c0-2b6d-d8fe-4959-9ca7894df340" class="w-richtext">
                       <blockquote class="team_quote">Transforming purpose and vision into enduring businesses.
                       </blockquote>
-                    </div><a href="https://www.linkedin.com/in/andrew-abraham-a70b43a3/"
+                    </div><a href="#"
                       data-w-id="639ac2c0-2b6d-d8fe-4959-9ca7894df343" target="_blank"
                       class="button is-soc w-inline-block">
                       <div>LinkedIn</div>
@@ -829,7 +916,7 @@
             <div class="w-layout-vflex footer_flex is-left">
               <p data-w-id="64ef3304-8203-4276-66ec-98b756364b0e">Siwa Capital backs exceptional entrepreneurs in
                 acquisition and growth.</p>
-              <div data-w-id="64ef3304-8203-4276-66ec-98b756364b10"><a href="/contact"
+              <div data-w-id="64ef3304-8203-4276-66ec-98b756364b10"><a href="#"
                   data-wf--button--variant="cream-arrow" data-w-id="b99ddc98-411d-ead4-2a4d-1c20d1214eeb"
                   class="button btn-arrow w-variant-f6c72434-fe5c-1627-7721-c14cd700e775 w-inline-block">
                   <div>Get in Touch</div>
@@ -1211,6 +1298,18 @@
         snapOnRelease: true
       },
     });
+
+    // Dynamic Navbar Scroll Effect
+    window.addEventListener('scroll', function() {
+      var navbar = document.querySelector('.navbar');
+      if (navbar) {
+        if (window.scrollY > 30) {
+          navbar.classList.add('is-scrolled');
+        } else {
+          navbar.classList.remove('is-scrolled');
+        }
+      }
+    }, { passive: true });
   </script>
 </body>
 
