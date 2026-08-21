@@ -178,6 +178,208 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
     }
 
+    /* Tinted Glassmorphic Wavy Flowing Color Styles */
+    @keyframes glassWaveFlow {
+      0% {
+        background-position: 0% 50%;
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        background-position: 100% 50%;
+        transform: rotate(180deg) scale(1.12);
+      }
+      100% {
+        background-position: 0% 50%;
+        transform: rotate(360deg) scale(1);
+      }
+    }
+
+    @keyframes ambientOrbFloat1 {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(45px, -35px) scale(1.15); }
+      66% { transform: translate(-30px, 25px) scale(0.92); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+
+    @keyframes ambientOrbFloat2 {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(-40px, 40px) scale(1.12); }
+      66% { transform: translate(35px, -25px) scale(0.94); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+
+    .wealth-glass-spotlight {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(252, 249, 244, 0.55) 50%, rgba(255, 255, 255, 0.85) 100%) !important;
+      backdrop-filter: blur(28px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+      box-shadow: 0 20px 48px rgba(78, 57, 46, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -1px 2px rgba(78, 57, 46, 0.04) !important;
+      border-radius: 1.5rem !important;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .wealth-glass-spotlight::before {
+      content: '';
+      position: absolute;
+      top: -45%;
+      left: -45%;
+      width: 190%;
+      height: 190%;
+      background: radial-gradient(circle at 30% 30%, rgba(212, 178, 144, 0.32) 0%, transparent 45%),
+                  radial-gradient(circle at 75% 65%, rgba(82, 183, 136, 0.26) 0%, transparent 45%),
+                  radial-gradient(circle at 50% 85%, rgba(142, 202, 230, 0.24) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 25%, rgba(244, 162, 97, 0.26) 0%, transparent 40%);
+      background-size: 200% 200%;
+      filter: blur(44px);
+      z-index: 0;
+      pointer-events: none;
+      animation: glassWaveFlow 15s ease-in-out infinite alternate;
+    }
+
+    .wealth-glass-spotlight > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .wealth-mini-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(250, 247, 242, 0.58) 100%) !important;
+      backdrop-filter: blur(16px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.8) !important;
+      box-shadow: 0 6px 18px rgba(78, 57, 46, 0.03), inset 0 1px 1px #ffffff !important;
+      border-radius: 1rem !important;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .wealth-mini-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at top right, rgba(212, 178, 144, 0.18), transparent 70%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .wealth-mini-card:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 28px rgba(78, 57, 46, 0.10), inset 0 1px 2px #ffffff !important;
+      border-color: rgba(212, 178, 144, 0.5) !important;
+    }
+
+    .wealth-mini-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Shimmering Glowing Border Animation for Active Mini-Cards */
+    @keyframes miniCardBorderShimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes miniCardGlowPulse {
+      0% {
+        box-shadow: 0 0 0 1px var(--card-theme, #4e392e), 0 0 18px var(--card-glow, rgba(78, 57, 46, 0.32)), 0 10px 24px rgba(0,0,0,0.06);
+      }
+      50% {
+        box-shadow: 0 0 0 1.5px var(--card-theme, #4e392e), 0 0 28px var(--card-glow, rgba(78, 57, 46, 0.55)), 0 14px 30px rgba(0,0,0,0.10);
+      }
+      100% {
+        box-shadow: 0 0 0 1px var(--card-theme, #4e392e), 0 0 18px var(--card-glow, rgba(78, 57, 46, 0.32)), 0 10px 24px rgba(0,0,0,0.06);
+      }
+    }
+
+    @keyframes lightBeamSweep {
+      0% {
+        transform: translateX(-150%) skewX(-20deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.65;
+      }
+      80% {
+        opacity: 0.65;
+      }
+      100% {
+        transform: translateX(250%) skewX(-20deg);
+        opacity: 0;
+      }
+    }
+
+    .wealth-mini-card.is-active {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(253, 250, 245, 0.90) 100%) !important;
+      border: 1.5px solid transparent !important;
+      animation: miniCardGlowPulse 2.8s ease-in-out infinite !important;
+      position: relative;
+    }
+
+    /* Moving shimmering border sweep outline */
+    .wealth-mini-card.is-active::after {
+      content: '';
+      position: absolute;
+      inset: -1.5px;
+      border-radius: calc(1rem + 1.5px);
+      padding: 1.5px;
+      background: linear-gradient(115deg, var(--card-theme, #4e392e) 0%, var(--card-accent, #d4b290) 25%, #ffffff 50%, var(--card-accent, #d4b290) 75%, var(--card-theme, #4e392e) 100%);
+      background-size: 250% 250%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      animation: miniCardBorderShimmer 3.5s linear infinite;
+      z-index: 2;
+    }
+
+    /* Light beam shimmer overlay on active card */
+    .wealth-mini-card .wealth-card-beam {
+      display: none;
+    }
+
+    .wealth-mini-card.is-active .wealth-card-beam {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+      animation: lightBeamSweep 4s ease-in-out infinite;
+    }
+
+    .wealth-step-tab:hover .wealth-step-badge {
+      transform: scale(1.08);
+    }
+    @media (max-width: 991px) {
+      #wealth-system [style*="grid-template-columns: 1.2fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .wealth-step-tabs-container {
+        justify-content: flex-start !important;
+      }
+      #wealth-system [style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
     .nav-btn {
       background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.90) 100%) !important;
       -webkit-backdrop-filter: blur(20px) !important;
@@ -1340,147 +1542,233 @@
       <!-- The Process Section end -->
 
       <!-- CPI Capital's Wealth Creation Value-Add System start -->
-      <section id="wealth-system" style="padding: 3rem 0 3.5rem 0; position: relative; background: #faf8f5; border-top: 1px solid rgba(78, 57, 46, 0.08); clear: both;">
-        <div class="padding-global">
+      <section id="wealth-system" style="padding: 4.5rem 0; position: relative; background: #faf8f5; border-top: 1px solid rgba(78, 57, 46, 0.08); clear: both; font-family: Aspektavf, Arial, sans-serif; overflow: hidden;">
+        
+        <!-- Ambient Wavy Floating Color Orbs Background -->
+        <div style="position: absolute; top: 8%; left: -6%; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(212, 178, 144, 0.30) 0%, rgba(212, 178, 144, 0) 70%); filter: blur(65px); pointer-events: none; animation: ambientOrbFloat1 18s ease-in-out infinite alternate; z-index: 0;"></div>
+        <div style="position: absolute; bottom: 4%; right: -6%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(82, 183, 136, 0.24) 0%, rgba(82, 183, 136, 0) 70%); filter: blur(70px); pointer-events: none; animation: ambientOrbFloat2 20s ease-in-out infinite alternate; z-index: 0;"></div>
+        <div style="position: absolute; top: 40%; right: 20%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(142, 202, 230, 0.20) 0%, rgba(142, 202, 230, 0) 70%); filter: blur(60px); pointer-events: none; animation: ambientOrbFloat1 22s ease-in-out infinite alternate; z-index: 0;"></div>
+
+        <div class="padding-global" style="position: relative; z-index: 1;">
           <div class="container">
             
-            <!-- Centered Section Masthead -->
-            <div style="text-align: center; max-width: 1050px; margin: 0 auto 2.25rem auto;">
-              <h2 style="font-size: 2.15rem; line-height: 1.25; color: #4e392e; margin: 0 0 0.65rem 0; font-weight: 700;">
+            <!-- Section Masthead -->
+            <div style="text-align: center; max-width: 900px; margin: 0 auto 2.5rem auto;">
+              <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9d7d5d; background: rgba(157, 125, 93, 0.12); padding: 0.35rem 0.95rem; border-radius: 999px; margin-bottom: 0.75rem; border: 1px solid rgba(157, 125, 93, 0.2); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <i class="fa-solid fa-layer-group" style="font-size: 0.75rem;"></i> End-to-End Investment Lifecycle
+              </div>
+              <h2 style="font-size: 2.35rem; line-height: 1.2; color: #4e392e; margin: 0 0 0.65rem 0; font-weight: 800;">
                 CPI Capital’s <span class="span-gradient">Wealth Creation Value-Add System</span>
               </h2>
-              <p style="color: #6a574a; font-size: 0.88rem; line-height: 1.55; margin: 0; font-weight: 600;">
-                Creating long-term investor wealth through value-add multifamily acquisitions and build-to-rent development.
+              <p style="color: #6a574a; font-size: 0.95rem; line-height: 1.6; margin: 0; font-weight: 500;">
+                Creating long-term investor wealth through disciplined value-add multifamily acquisitions and build-to-rent development.
               </p>
             </div>
 
-            <!-- 6-Stage Compact Grid -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem; margin-bottom: 0;">
+            <!-- Connected Interactive Stepper Navigation Bar -->
+            <div style="position: relative; margin-bottom: 2.5rem;">
+              <!-- Background Connecting Track -->
+              <div style="position: absolute; top: 22px; left: 5%; right: 5%; height: 2px; background: rgba(78, 57, 46, 0.12); z-index: 1;">
+                <div id="wealth-stepper-progress" style="height: 100%; width: 16.66%; background: linear-gradient(90deg, #4e392e, #9d7d5d); transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);"></div>
+              </div>
+
+              <!-- 6 Stepper Trigger Buttons -->
+              <div class="wealth-step-tabs-container" style="position: relative; z-index: 2; display: flex; justify-content: space-between; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: none;">
+                
+                <button type="button" class="wealth-step-tab is-active" data-step="0" onclick="switchWealthStep(0)" style="background: transparent; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 0; outline: none; transition: all 0.3s ease;">
+                  <div class="wealth-step-badge" style="width: 44px; height: 44px; border-radius: 50%; background: #4e392e; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; border: 3px solid #ffffff; box-shadow: 0 4px 14px rgba(78,57,46,0.25); transition: all 0.3s ease;">
+                    01
+                  </div>
+                  <span class="wealth-step-label" style="font-size: 0.78rem; font-weight: 700; color: #4e392e; text-align: center; line-height: 1.25;">Market Sourcing</span>
+                </button>
+
+                <button type="button" class="wealth-step-tab" data-step="1" onclick="switchWealthStep(1)" style="background: transparent; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 0; outline: none; transition: all 0.3s ease;">
+                  <div class="wealth-step-badge" style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #7c3e25; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; border: 2px solid rgba(124, 62, 37, 0.25); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease;">
+                    02
+                  </div>
+                  <span class="wealth-step-label" style="font-size: 0.78rem; font-weight: 600; color: #8c7a6d; text-align: center; line-height: 1.25;">Due Diligence</span>
+                </button>
+
+                <button type="button" class="wealth-step-tab" data-step="2" onclick="switchWealthStep(2)" style="background: transparent; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 0; outline: none; transition: all 0.3s ease;">
+                  <div class="wealth-step-badge" style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #194d33; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; border: 2px solid rgba(25, 77, 51, 0.25); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease;">
+                    03
+                  </div>
+                  <span class="wealth-step-label" style="font-size: 0.78rem; font-weight: 600; color: #8c7a6d; text-align: center; line-height: 1.25;">Structuring</span>
+                </button>
+
+                <button type="button" class="wealth-step-tab" data-step="3" onclick="switchWealthStep(3)" style="background: transparent; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 0; outline: none; transition: all 0.3s ease;">
+                  <div class="wealth-step-badge" style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #4e392e; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; border: 2px solid rgba(78, 57, 46, 0.25); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease;">
+                    04
+                  </div>
+                  <span class="wealth-step-label" style="font-size: 0.78rem; font-weight: 600; color: #8c7a6d; text-align: center; line-height: 1.25;">Asset Execution</span>
+                </button>
+
+                <button type="button" class="wealth-step-tab" data-step="4" onclick="switchWealthStep(4)" style="background: transparent; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 0; outline: none; transition: all 0.3s ease;">
+                  <div class="wealth-step-badge" style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #194d33; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; border: 2px solid rgba(25, 77, 51, 0.25); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease;">
+                    05
+                  </div>
+                  <span class="wealth-step-label" style="font-size: 0.78rem; font-weight: 600; color: #8c7a6d; text-align: center; line-height: 1.25;">Yield Optimization</span>
+                </button>
+
+                <button type="button" class="wealth-step-tab" data-step="5" onclick="switchWealthStep(5)" style="background: transparent; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 0; outline: none; transition: all 0.3s ease;">
+                  <div class="wealth-step-badge" style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #1d3557; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; border: 2px solid rgba(29, 53, 87, 0.25); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.3s ease;">
+                    06
+                  </div>
+                  <span class="wealth-step-label" style="font-size: 0.78rem; font-weight: 600; color: #8c7a6d; text-align: center; line-height: 1.25;">Value Realization</span>
+                </button>
+
+              </div>
+            </div>
+
+            <!-- Two-Column Interactive Stage Showcase Hub -->
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.75rem; align-items: stretch;">
               
-              <!-- Card 1 -->
-              <div style="background: #ffffff; border: 1px solid rgba(78, 57, 46, 0.12); border-radius: 1.15rem; padding: 1.35rem 1.25rem; display: flex; flex-flow: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(78, 57, 46, 0.03); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #4e392e, #d4b290);"></div>
-                <div>
-                  <div style="margin-bottom: 0.85rem;">
-                    <div style="width: 38px; height: 38px; border-radius: 0.75rem; background: rgba(78, 57, 46, 0.08); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(78, 57, 46, 0.15);">
-                      <i class="fa-solid fa-map-location-dot" style="font-size: 1.05rem; color: #4e392e;"></i>
+              <!-- Left: Active Stage Spotlight Card (Tinted Glassmorphic Wavy Flow Container) -->
+              <div id="wealth-spotlight-card" class="wealth-glass-spotlight" style="padding: 2.5rem 2.5rem; position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 390px;">
+                
+                <!-- Watermark Background Number -->
+                <div id="spotlight-watermark" style="position: absolute; right: 1.5rem; bottom: 0.5rem; font-size: 7.5rem; font-weight: 900; color: rgba(78, 57, 46, 0.05); line-height: 1; pointer-events: none; user-select: none; font-family: Aspektavf, Arial, sans-serif; z-index: 1;">
+                  01
+                </div>
+
+                <div style="position: relative; z-index: 2;">
+                  <!-- Stage Top Header -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                    <div id="spotlight-tag" style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4e392e; background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(78, 57, 46, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 0.38rem 0.9rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                      Stage 01 • Acquisition &amp; Sourcing
+                    </div>
+                    <div id="spotlight-icon-box" style="width: 46px; height: 46px; border-radius: 0.85rem; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: 0 4px 14px rgba(0,0,0,0.05);">
+                      <i id="spotlight-icon" class="fa-solid fa-map-location-dot" style="font-size: 1.25rem; color: #4e392e;"></i>
                     </div>
                   </div>
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #4e392e; margin: 0 0 0.35rem 0; line-height: 1.25;">
+
+                  <!-- Stage Title -->
+                  <h3 id="spotlight-title" style="font-size: 1.6rem; font-weight: 800; color: #4e392e; margin: 0 0 0.85rem 0; line-height: 1.25;">
                     Identify High-Growth Markets
                   </h3>
-                  <p style="font-size: 0.82rem; color: #6a574a; line-height: 1.45; margin: 0 0 0.85rem 0;">
+
+                  <!-- Stage Narrative Description -->
+                  <p id="spotlight-desc" style="font-size: 0.92rem; color: #6a574a; line-height: 1.6; margin: 0 0 1.5rem 0;">
                     Macroeconomic screening prioritizing high-growth Sunbelt metros (Dallas-Fort Worth, Orlando, Tampa, Atlanta, Phoenix) with strong population in-migration and job growth.
                   </p>
-                </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #4e392e; background: #fbf9f6; padding: 0.35rem 0.75rem; border-radius: 0.55rem; border: 1px solid #ede5db; width: fit-content;">
-                  <i class="fa-solid fa-arrow-trend-up" style="color: #9d7d5d;"></i> High Population &amp; GDP Growth
-                </div>
-              </div>
 
-              <!-- Card 2 -->
-              <div style="background: #ffffff; border: 1px solid rgba(78, 57, 46, 0.12); border-radius: 1.15rem; padding: 1.35rem 1.25rem; display: flex; flex-flow: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(78, 57, 46, 0.03); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #7c3e25, #f4a261);"></div>
-                <div>
-                  <div style="margin-bottom: 0.85rem;">
-                    <div style="width: 38px; height: 38px; border-radius: 0.75rem; background: rgba(124, 62, 37, 0.08); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(124, 62, 37, 0.18);">
-                      <i class="fa-solid fa-building-circle-check" style="font-size: 1.05rem; color: #7c3e25;"></i>
+                  <!-- Key Pillars / Execution Deliverables -->
+                  <div id="spotlight-pillars" style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.75rem;">
+                    <div style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: #4e392e;">
+                      <i class="fa-solid fa-circle-check" style="color: #9d7d5d; font-size: 0.9rem;"></i>
+                      <span>High-migration Sunbelt MSAs (Dallas, Orlando, Atlanta, Phoenix)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: #4e392e;">
+                      <i class="fa-solid fa-circle-check" style="color: #9d7d5d; font-size: 0.9rem;"></i>
+                      <span>Landlord-friendly jurisdictions with diversified GDP growth</span>
                     </div>
                   </div>
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #4e392e; margin: 0 0 0.35rem 0; line-height: 1.25;">
-                    Source Institutional-Quality Opportunities
-                  </h3>
-                  <p style="font-size: 0.82rem; color: #6a574a; line-height: 1.45; margin: 0 0 0.85rem 0;">
-                    Off-market institutional Class-A/B multifamily and Build-to-Rent subdivisions acquired significantly below replacement cost with clear operational value-add upside.
-                  </p>
                 </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #7c3e25; background: #faf4f0; padding: 0.35rem 0.75rem; border-radius: 0.55rem; border: 1px solid #eddcd1; width: fit-content;">
-                  <i class="fa-solid fa-shield" style="color: #7c3e25;"></i> Below Replacement Cost Basis
+
+                <!-- Footer Metric & Navigation Controls -->
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(78, 57, 46, 0.08); padding-top: 1.25rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 2;">
+                  
+                  <div id="spotlight-badge" style="display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 700; color: #4e392e; background: #fbf9f6; padding: 0.45rem 0.95rem; border-radius: 0.65rem; border: 1px solid #ede5db;">
+                    <i id="spotlight-badge-icon" class="fa-solid fa-arrow-trend-up" style="color: #9d7d5d;"></i>
+                    <span id="spotlight-badge-text">High Population &amp; GDP Growth</span>
+                  </div>
+
+                  <!-- Controls -->
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <button type="button" onclick="prevWealthStep()" title="Previous stage" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; border: 1px solid rgba(78, 57, 46, 0.18); color: #4e392e; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease;">
+                      <i class="fa-solid fa-arrow-left" style="font-size: 0.8rem;"></i>
+                    </button>
+                    <span id="spotlight-counter" style="font-size: 0.82rem; font-weight: 700; color: #8c7a6d; min-width: 48px; text-align: center;">01 / 06</span>
+                    <button type="button" onclick="nextWealthStep()" title="Next stage" style="width: 36px; height: 36px; border-radius: 50%; background: #4e392e; border: 1px solid #4e392e; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 10px rgba(78,57,46,0.2);">
+                      <i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i>
+                    </button>
+                  </div>
+
                 </div>
+
               </div>
 
-              <!-- Card 3 -->
-              <div style="background: #ffffff; border: 1px solid rgba(25, 77, 51, 0.18); border-radius: 1.15rem; padding: 1.35rem 1.25rem; display: flex; flex-flow: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(25, 77, 51, 0.03); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #194d33, #74c69d);"></div>
-                <div>
-                  <div style="margin-bottom: 0.85rem;">
-                    <div style="width: 38px; height: 38px; border-radius: 0.75rem; background: rgba(25, 77, 51, 0.08); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(25, 77, 51, 0.18);">
-                      <i class="fa-solid fa-file-contract" style="font-size: 1.05rem; color: #194d33;"></i>
+              <!-- Right: 6 Interactive Stage Mini-Cards Grid -->
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem;">
+                
+                <!-- Mini Card 0 -->
+                <div class="wealth-mini-card is-active" data-step="0" onclick="switchWealthStep(0)" style="--card-theme: #4e392e; --card-accent: #d4b290; --card-glow: rgba(78, 57, 46, 0.35); padding: 1.15rem 1.15rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="wealth-card-beam"></div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; position: relative; z-index: 2;">
+                      <span style="font-size: 0.72rem; font-weight: 800; color: #4e392e; opacity: 0.85;">STEP 01</span>
+                      <i class="fa-solid fa-map-location-dot" style="font-size: 0.95rem; color: #4e392e;"></i>
                     </div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #4e392e; line-height: 1.25; margin-bottom: 0.35rem; position: relative; z-index: 2;">Identify High-Growth Markets</div>
                   </div>
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #194d33; margin: 0 0 0.35rem 0; line-height: 1.25;">
-                    Structure the Investment
-                  </h3>
-                  <p style="font-size: 0.82rem; color: #52796f; line-height: 1.45; margin: 0 0 0.85rem 0;">
-                    SEC Reg D 506(c) &amp; Canadian cross-border syndication structuring with full pro-forma transparency, institutional due diligence rooms, and GP co-investment alignment.
-                  </p>
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #9d7d5d; margin-top: 0.5rem; position: relative; z-index: 2;">Population &amp; GDP ↗</div>
                 </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #194d33; background: #f0f7f4; padding: 0.35rem 0.75rem; border-radius: 0.55rem; border: 1px solid #d4ebe0; width: fit-content;">
-                  <i class="fa-solid fa-handshake" style="color: #194d33;"></i> 100% Sponsor Co-Investment
-                </div>
-              </div>
 
-              <!-- Card 4 -->
-              <div style="background: #ffffff; border: 1px solid rgba(78, 57, 46, 0.12); border-radius: 1.15rem; padding: 1.35rem 1.25rem; display: flex; flex-flow: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(78, 57, 46, 0.03); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #4e392e, #d4b290);"></div>
-                <div>
-                  <div style="margin-bottom: 0.85rem;">
-                    <div style="width: 38px; height: 38px; border-radius: 0.75rem; background: rgba(78, 57, 46, 0.08); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(78, 57, 46, 0.15);">
-                      <i class="fa-solid fa-screwdriver-wrench" style="font-size: 1.05rem; color: #4e392e;"></i>
+                <!-- Mini Card 1 -->
+                <div class="wealth-mini-card" data-step="1" onclick="switchWealthStep(1)" style="--card-theme: #7c3e25; --card-accent: #f4a261; --card-glow: rgba(124, 62, 37, 0.35); padding: 1.15rem 1.15rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="wealth-card-beam"></div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; position: relative; z-index: 2;">
+                      <span style="font-size: 0.72rem; font-weight: 800; color: #7c3e25; opacity: 0.85;">STEP 02</span>
+                      <i class="fa-solid fa-building-circle-check" style="font-size: 0.95rem; color: #7c3e25;"></i>
                     </div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #4e392e; line-height: 1.25; margin-bottom: 0.35rem; position: relative; z-index: 2;">Institutional Opportunities</div>
                   </div>
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #4e392e; margin: 0 0 0.35rem 0; line-height: 1.25;">
-                    Execute the Business Plan
-                  </h3>
-                  <p style="font-size: 0.82rem; color: #6a574a; line-height: 1.45; margin: 0 0 0.85rem 0;">
-                    Hands-on active asset management executing strategic interior renovations, luxury amenity additions, operational cost reductions, and tech-driven forced NOI appreciation.
-                  </p>
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #7c3e25; margin-top: 0.5rem; position: relative; z-index: 2;">Below Replacement Cost 🛡️</div>
                 </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #4e392e; background: #fbf9f6; padding: 0.35rem 0.75rem; border-radius: 0.55rem; border: 1px solid #ede5db; width: fit-content;">
-                  <i class="fa-solid fa-chart-line" style="color: #9d7d5d;"></i> Forced Operational Appreciation
-                </div>
-              </div>
 
-              <!-- Card 5 -->
-              <div style="background: #ffffff; border: 1px solid rgba(25, 77, 51, 0.18); border-radius: 1.15rem; padding: 1.35rem 1.25rem; display: flex; flex-flow: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(25, 77, 51, 0.03); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #194d33, #74c69d);"></div>
-                <div>
-                  <div style="margin-bottom: 0.85rem;">
-                    <div style="width: 38px; height: 38px; border-radius: 0.75rem; background: rgba(25, 77, 51, 0.08); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(25, 77, 51, 0.18);">
-                      <i class="fa-solid fa-money-bill-trend-up" style="font-size: 1.05rem; color: #194d33;"></i>
+                <!-- Mini Card 2 -->
+                <div class="wealth-mini-card" data-step="2" onclick="switchWealthStep(2)" style="--card-theme: #194d33; --card-accent: #74c69d; --card-glow: rgba(25, 77, 51, 0.35); padding: 1.15rem 1.15rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="wealth-card-beam"></div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; position: relative; z-index: 2;">
+                      <span style="font-size: 0.72rem; font-weight: 800; color: #194d33; opacity: 0.85;">STEP 03</span>
+                      <i class="fa-solid fa-file-contract" style="font-size: 0.95rem; color: #194d33;"></i>
                     </div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #194d33; line-height: 1.25; margin-bottom: 0.35rem; position: relative; z-index: 2;">Structure Investment</div>
                   </div>
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #194d33; margin: 0 0 0.35rem 0; line-height: 1.25;">
-                    Optimize Asset Performance
-                  </h3>
-                  <p style="font-size: 0.82rem; color: #52796f; line-height: 1.45; margin: 0 0 0.85rem 0;">
-                    Reliable quarterly passive income distributions directly deposited to LP investors, sheltered from income taxes through accelerated cost segregation depreciation benefits.
-                  </p>
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #194d33; margin-top: 0.5rem; position: relative; z-index: 2;">100% GP Co-Investment 🤝</div>
                 </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #194d33; background: #f0f7f4; padding: 0.35rem 0.75rem; border-radius: 0.55rem; border: 1px solid #d4ebe0; width: fit-content;">
-                  <i class="fa-solid fa-coins" style="color: #194d33;"></i> 8.0% – 10.0% Cash-on-Cash Yield
-                </div>
-              </div>
 
-              <!-- Card 6 -->
-              <div style="background: #ffffff; border: 1px solid rgba(43, 66, 87, 0.18); border-radius: 1.15rem; padding: 1.35rem 1.25rem; display: flex; flex-flow: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(43, 66, 87, 0.03); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2b4257, #8ecae6);"></div>
-                <div>
-                  <div style="margin-bottom: 0.85rem;">
-                    <div style="width: 38px; height: 38px; border-radius: 0.75rem; background: rgba(43, 66, 87, 0.08); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(43, 66, 87, 0.18);">
-                      <i class="fa-solid fa-trophy" style="font-size: 1.05rem; color: #1d3557;"></i>
+                <!-- Mini Card 3 -->
+                <div class="wealth-mini-card" data-step="3" onclick="switchWealthStep(3)" style="--card-theme: #4e392e; --card-accent: #d4b290; --card-glow: rgba(78, 57, 46, 0.35); padding: 1.15rem 1.15rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="wealth-card-beam"></div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; position: relative; z-index: 2;">
+                      <span style="font-size: 0.72rem; font-weight: 800; color: #4e392e; opacity: 0.85;">STEP 04</span>
+                      <i class="fa-solid fa-screwdriver-wrench" style="font-size: 0.95rem; color: #4e392e;"></i>
                     </div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #4e392e; line-height: 1.25; margin-bottom: 0.35rem; position: relative; z-index: 2;">Execute Business Plan</div>
                   </div>
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #1d3557; margin: 0 0 0.35rem 0; line-height: 1.25;">
-                    Realize Value
-                  </h3>
-                  <p style="font-size: 0.82rem; color: #5b7389; line-height: 1.45; margin: 0 0 0.85rem 0;">
-                    Capitalizing on market timing to execute an institutional sale or refinance, returning 100% of initial principal plus target 18%–22% net IRR equity upside.
-                  </p>
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #9d7d5d; margin-top: 0.5rem; position: relative; z-index: 2;">Forced NOI Growth 📈</div>
                 </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #1d3557; background: #f1f6fa; padding: 0.35rem 0.75rem; border-radius: 0.55rem; border: 1px solid #d9e5ef; width: fit-content;">
-                  <i class="fa-solid fa-award" style="color: #2b4257;"></i> 1.8x – 2.2x Projected MOIC
+
+                <!-- Mini Card 4 -->
+                <div class="wealth-mini-card" data-step="4" onclick="switchWealthStep(4)" style="--card-theme: #194d33; --card-accent: #52b788; --card-glow: rgba(25, 77, 51, 0.35); padding: 1.15rem 1.15rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="wealth-card-beam"></div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; position: relative; z-index: 2;">
+                      <span style="font-size: 0.72rem; font-weight: 800; color: #194d33; opacity: 0.85;">STEP 05</span>
+                      <i class="fa-solid fa-money-bill-trend-up" style="font-size: 0.95rem; color: #194d33;"></i>
+                    </div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #194d33; line-height: 1.25; margin-bottom: 0.35rem; position: relative; z-index: 2;">Optimize Performance</div>
+                  </div>
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #194d33; margin-top: 0.5rem; position: relative; z-index: 2;">8.0% – 10.0% Cash Yield 💵</div>
                 </div>
+
+                <!-- Mini Card 5 -->
+                <div class="wealth-mini-card" data-step="5" onclick="switchWealthStep(5)" style="--card-theme: #1d3557; --card-accent: #8ecae6; --card-glow: rgba(29, 53, 87, 0.35); padding: 1.15rem 1.15rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="wealth-card-beam"></div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; position: relative; z-index: 2;">
+                      <span style="font-size: 0.72rem; font-weight: 800; color: #1d3557; opacity: 0.85;">STEP 06</span>
+                      <i class="fa-solid fa-trophy" style="font-size: 0.95rem; color: #1d3557;"></i>
+                    </div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #1d3557; line-height: 1.25; margin-bottom: 0.35rem; position: relative; z-index: 2;">Realize Value</div>
+                  </div>
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #1d3557; margin-top: 0.5rem; position: relative; z-index: 2;">1.8x – 2.2x MOIC 🏆</div>
+                </div>
+
               </div>
 
             </div>
@@ -1760,103 +2048,49 @@
       <!-- Our Institutional Partners & Ecosystem end -->
 
       <!-- Webinar Masterclass & Investor Knowledge Hub start -->
-      <section id="webinars" style="padding: 2.25rem 0 3.5rem 0; position: relative; background: #faf8f5; border-top: 1px solid rgba(78, 57, 46, 0.08); clear: both;">
+      <section id="webinars" style="padding: 3rem 0 3.5rem 0; position: relative; background: #faf8f5; border-top: 1px solid rgba(78, 57, 46, 0.08); clear: both; font-family: Aspektavf, Arial, sans-serif;">
         <div class="padding-global">
           <div class="container">
             
             <!-- Section Masthead -->
-            <div class="w-layout-hflex header" style="margin-bottom: 1.5rem; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+            <div class="w-layout-hflex header" style="margin-bottom: 2rem; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
               <div class="header-left" style="max-width: 680px;">
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: #9d7d5d; font-weight: 700; padding: 0.25rem 0.9rem; border-radius: 999px; background: rgba(157, 125, 93, 0.1); border: 1px solid rgba(157, 125, 93, 0.22); margin-bottom: 0.4rem;">
-                  <span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background-color: #9d7d5d;"></span>
+                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9d7d5d; font-weight: 700; padding: 0.3rem 0.95rem; border-radius: 999px; background: rgba(157, 125, 93, 0.12); border: 1px solid rgba(157, 125, 93, 0.22); margin-bottom: 0.5rem; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                  <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: #52b788;"></span>
                   Investor Education &amp; Knowledge Centre
                 </div>
-                <h2 style="font-size: 2.25rem; line-height: 1.15; color: #4e392e; margin: 0; font-weight: 700;">
+                <h2 style="font-size: 2.35rem; line-height: 1.18; color: #4e392e; margin: 0; font-weight: 800;">
                   Real Estate Private Equity <br><span class="span-gradient">Webinar Masterclass</span>
                 </h2>
               </div>
               <div class="header-filter" style="max-width: 460px;">
-                <p style="color: #6a574a; font-size: 0.92rem; line-height: 1.5; margin-bottom: 0.5rem;">
+                <p style="color: #6a574a; font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.5rem;">
                   Access data-packed institutional webinar replays, cross-border tax breakdowns, underwriting masteries, and macro Sunbelt economic forecasts.
                 </p>
-                <div style="font-size: 0.78rem; color: #9d7d5d; font-weight: 700;">
-                  <i class="fa-solid fa-circle-play" style="margin-right: 5px;"></i> 100% Free On-Demand Access for Investors
+                <div style="font-size: 0.8rem; color: #1b4332; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                  <i class="fa-solid fa-circle-play" style="color: #52b788;"></i> 100% Free On-Demand Access for Accredited Investors
                 </div>
               </div>
             </div>
 
-            <!-- Hero Featured Masterclass Player Card -->
-            <div style="background: #ffffff; border: 1px solid rgba(78, 57, 46, 0.15); border-radius: 1.5rem; overflow: hidden; box-shadow: 0 15px 35px rgba(78, 57, 46, 0.05); margin-bottom: 0; display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;">
+            <!-- Premium Masterclass Image Showcase Container with Flowing Tinted Backdrop -->
+            <div style="position: relative; border-radius: 1.75rem; overflow: hidden; background: linear-gradient(135deg, #1f1712 0%, #352318 35%, #183324 75%, #142433 100%); padding: 1.5rem; box-shadow: 0 25px 60px rgba(78, 57, 46, 0.15); border: 1.5px solid rgba(224, 176, 132, 0.35);">
               
-              <!-- Left: Masterclass Details & Access -->
-              <div style="padding: 2rem 2rem; display: flex; flex-flow: column; justify-content: space-between; background: #ffffff;">
-                <div>
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
-                    <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: #194d33; background: #f0f7f4; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #d4ebe0; display: inline-flex; align-items: center; gap: 5px;">
-                      <i class="fa-solid fa-circle" style="color: #2a9d8f; font-size: 0.5rem;"></i> EPISODE 42 • FEATURED MASTERCLASS
-                    </span>
-                    <span style="font-size: 0.75rem; color: #8a7364; font-weight: 600;">
-                      <i class="fa-solid fa-clock" style="margin-right: 4px;"></i> 48 Min Runtime
-                    </span>
-                  </div>
+              <!-- Ambient Subtle Glowing Orbs in Background -->
+              <div style="position: absolute; top: -20%; left: -10%; width: 450px; height: 450px; border-radius: 50%; background: radial-gradient(circle, rgba(212, 178, 144, 0.35) 0%, rgba(212, 178, 144, 0) 70%); filter: blur(55px); pointer-events: none;"></div>
+              <div style="position: absolute; bottom: -20%; right: -10%; width: 450px; height: 450px; border-radius: 50%; background: radial-gradient(circle, rgba(82, 183, 136, 0.3) 0%, rgba(82, 183, 136, 0) 70%); filter: blur(60px); pointer-events: none;"></div>
 
-                  <h3 style="font-size: 1.35rem; font-weight: 800; color: #4e392e; line-height: 1.25; margin: 0 0 0.65rem 0;">
-                    The Canadian Gateway to U.S. Multifamily Real Estate
-                  </h3>
-                  
-                  <p style="font-size: 0.86rem; color: #6a574a; line-height: 1.5; margin-bottom: 1rem;">
-                    Join CPI Capital principals for an in-depth masterclass breaking down how Canadian LPs invest into cash-flowing Sunbelt multifamily using RRSP, TFSA, CAD, and T5013 tax packages without U.S. tax filing hassles.
-                  </p>
-
-                  <div style="background: #faf8f5; border: 1px solid #ede5db; border-radius: 0.85rem; padding: 0.85rem 1rem; margin-bottom: 1.25rem;">
-                    <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #8a7364; margin-bottom: 0.35rem;">What You'll Learn:</div>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: #4e392e; line-height: 1.55;">
-                      <li style="margin-bottom: 0.2rem;">✓ Cross-border T5013 tax packaging &amp; CRA compliance</li>
-                      <li style="margin-bottom: 0.2rem;">✓ Selecting prime Sunbelt metros for forced operational rent growth</li>
-                      <li>✓ Currency hedging &amp; USD distribution reinvestment options</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- CTAs -->
-                <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
-                  <a href="#contact" class="button-mb-brown w-inline-block" style="padding: 0.65rem 1.35rem; font-weight: 700; font-size: 0.82rem; flex: 1; text-align: center; justify-content: center; box-shadow: 0 4px 12px rgba(78,57,46,0.15); border-radius: 999px;">
-                    <div>Unlock Masterclass Video <i class="fa-solid fa-lock" style="margin-left: 6px; font-size: 0.75rem;"></i></div>
-                  </a>
-                  <a href="#contact" class="btn-line w-inline-block" style="padding: 0.65rem 1.15rem; font-weight: 600; font-size: 0.82rem; border-color: rgba(78,57,46,0.25); border-radius: 999px;">
-                    <div>Download Slide Deck 📄</div>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Right: High-Impact Video Thumbnail Player -->
-              <div style="position: relative; min-height: 340px; overflow: hidden; background: #231d19;">
-                <img src="images/property_multifamily_palmetto.jpg" alt="Webinar Masterclass Video" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.75;">
-                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,15,12,0.4) 0%, rgba(20,15,12,0.85) 100%);"></div>
-
-                <!-- Center Animated Play Button -->
-                <div style="position: absolute; inset: 0; display: flex; flex-flow: column; align-items: center; justify-content: center;">
-                  <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(224, 176, 132, 0.95); color: #4e392e; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35); cursor: pointer; transition: transform 0.3s ease; padding-left: 3px;">
-                    <i class="fa-solid fa-play"></i>
-                  </div>
-                  <div style="color: #ffffff; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.75rem; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
-                    Click to Preview Replay
-                  </div>
-                </div>
-
-                <!-- Bottom Speaker Attribution Bar -->
-                <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(12px); border-radius: 0.85rem; padding: 0.65rem 1rem; display: flex; justify-content: space-between; align-items: center; color: #ffffff; border: 1px solid rgba(255,255,255,0.15);">
-                  <div>
-                    <div style="font-size: 0.68rem; color: #e0b084; font-weight: 700; text-transform: uppercase;">Masterclass Hosts</div>
-                    <div style="font-size: 0.82rem; font-weight: 700;">Ava Beneski &amp; August Biniaz</div>
-                  </div>
-                  <div style="font-size: 0.7rem; background: rgba(255,255,255,0.15); padding: 0.2rem 0.55rem; border-radius: 6px; font-weight: 600;">
-                    HD 1080p
-                  </div>
-                </div>
+              <!-- Main Showcase Image -->
+              <div style="position: relative; z-index: 2; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.2);">
+                <img src="images/Screenshot_9%20copy.png" alt="CPI Capital Masterclass Overview" loading="lazy" style="width: 100%; height: auto; max-height: 580px; object-fit: contain; display: block; margin: 0 auto;">
               </div>
 
             </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- Webinar Masterclass & Investor Knowledge Hub end -->
 
           </div>
         </div>
@@ -2867,6 +3101,253 @@
         }
       }, { passive: true });
     })();
+
+    // CPI Capital Wealth Creation Value-Add System Interactive Switcher
+    const wealthStages = [
+      {
+        step: '01',
+        tag: 'Stage 01 • Acquisition & Sourcing',
+        title: 'Identify High-Growth Markets',
+        desc: 'Macroeconomic screening prioritizing high-growth Sunbelt metros (Dallas-Fort Worth, Orlando, Tampa, Atlanta, Phoenix) with strong population in-migration and job growth.',
+        icon: 'fa-map-location-dot',
+        themeColor: '#4e392e',
+        accentColor: '#9d7d5d',
+        badgeIcon: 'fa-arrow-trend-up',
+        badgeText: 'High Population & GDP Growth',
+        badgeBg: '#fbf9f6',
+        badgeBorder: '#ede5db',
+        badgeColor: '#4e392e',
+        pillars: [
+          'High-migration Sunbelt MSAs (Dallas, Orlando, Atlanta, Phoenix)',
+          'Landlord-friendly jurisdictions with diversified GDP growth'
+        ]
+      },
+      {
+        step: '02',
+        tag: 'Stage 02 • Underwriting & Deal Selection',
+        title: 'Source Institutional-Quality Opportunities',
+        desc: 'Off-market institutional Class-A/B multifamily and Build-to-Rent subdivisions acquired significantly below replacement cost with clear operational value-add upside.',
+        icon: 'fa-building-circle-check',
+        themeColor: '#7c3e25',
+        accentColor: '#f4a261',
+        badgeIcon: 'fa-shield',
+        badgeText: 'Below Replacement Cost Basis',
+        badgeBg: '#faf4f0',
+        badgeBorder: '#eddcd1',
+        badgeColor: '#7c3e25',
+        pillars: [
+          'Significant discount to current replacement cost basis',
+          'Off-market institutional broker and developer deal pipeline'
+        ]
+      },
+      {
+        step: '03',
+        tag: 'Stage 03 • Capital Structuring & Compliance',
+        title: 'Structure the Investment',
+        desc: 'SEC Reg D 506(c) & Canadian cross-border syndication structuring with full pro-forma transparency, institutional due diligence rooms, and GP co-investment alignment.',
+        icon: 'fa-file-contract',
+        themeColor: '#194d33',
+        accentColor: '#74c69d',
+        badgeIcon: 'fa-handshake',
+        badgeText: '100% Sponsor Co-Investment',
+        badgeBg: '#f0f7f4',
+        badgeBorder: '#d4ebe0',
+        badgeColor: '#194d33',
+        pillars: [
+          'SEC Reg D 506(c) and Canadian cross-border tax structure',
+          '100% Sponsor co-investment aligning GP and LP incentives'
+        ]
+      },
+      {
+        step: '04',
+        tag: 'Stage 04 • Active Asset Management',
+        title: 'Execute the Business Plan',
+        desc: 'Hands-on active asset management executing strategic interior renovations, luxury amenity additions, operational cost reductions, and tech-driven forced NOI appreciation.',
+        icon: 'fa-screwdriver-wrench',
+        themeColor: '#4e392e',
+        accentColor: '#9d7d5d',
+        badgeIcon: 'fa-chart-line',
+        badgeText: 'Forced Operational Appreciation',
+        badgeBg: '#fbf9f6',
+        badgeBorder: '#ede5db',
+        badgeColor: '#4e392e',
+        pillars: [
+          'Designer interior upgrades, modern clubhouses & smart tech',
+          'Expense reduction and operational streamlining to force NOI'
+        ]
+      },
+      {
+        step: '05',
+        tag: 'Stage 05 • Cash Flow & Distributions',
+        title: 'Optimize Asset Performance',
+        desc: 'Reliable quarterly passive income distributions directly deposited to LP investors, sheltered from income taxes through accelerated cost segregation depreciation benefits.',
+        icon: 'fa-money-bill-trend-up',
+        themeColor: '#194d33',
+        accentColor: '#52b788',
+        badgeIcon: 'fa-coins',
+        badgeText: '8.0% – 10.0% Cash-on-Cash Yield',
+        badgeBg: '#f0f7f4',
+        badgeBorder: '#d4ebe0',
+        badgeColor: '#194d33',
+        pillars: [
+          'Predictable quarterly passive distributions direct to bank account',
+          'Accelerated cost segregation depreciation sheltering cash flow'
+        ]
+      },
+      {
+        step: '06',
+        tag: 'Stage 06 • Liquidity & Exit Event',
+        title: 'Realize Value',
+        desc: 'Capitalizing on market timing to execute an institutional sale or refinance, returning 100% of initial principal plus target 18%–22% net IRR equity upside.',
+        icon: 'fa-trophy',
+        themeColor: '#1d3557',
+        accentColor: '#8ecae6',
+        badgeIcon: 'fa-award',
+        badgeText: '1.8x – 2.2x Projected MOIC (18%–22% Net IRR)',
+        badgeBg: '#f1f6fa',
+        badgeBorder: '#d9e5ef',
+        badgeColor: '#1d3557',
+        pillars: [
+          '100% initial capital returned upon institutional disposition',
+          'Target 18%–22% Net IRR with 1.8x–2.2x target equity multiple'
+        ]
+      }
+    ];
+
+    let currentWealthStep = 0;
+
+    function switchWealthStep(index) {
+      if (index < 0 || index >= wealthStages.length) return;
+      currentWealthStep = index;
+      const stage = wealthStages[index];
+
+      // Update progress bar
+      const progress = document.getElementById('wealth-stepper-progress');
+      if (progress) {
+        progress.style.width = ((index + 1) / wealthStages.length * 100) + '%';
+        progress.style.background = 'linear-gradient(90deg, ' + stage.themeColor + ', ' + stage.accentColor + ')';
+      }
+
+      // Update Stepper Tabs
+      const tabs = document.querySelectorAll('.wealth-step-tab');
+      tabs.forEach((tab, i) => {
+        const badge = tab.querySelector('.wealth-step-badge');
+        const label = tab.querySelector('.wealth-step-label');
+        if (i === index) {
+          tab.classList.add('is-active');
+          if (badge) {
+            badge.style.background = stage.themeColor;
+            badge.style.color = '#ffffff';
+            badge.style.borderColor = '#ffffff';
+            badge.style.boxShadow = '0 6px 16px rgba(0,0,0,0.18)';
+          }
+          if (label) {
+            label.style.fontWeight = '800';
+            label.style.color = stage.themeColor;
+          }
+        } else {
+          tab.classList.remove('is-active');
+          if (badge) {
+            badge.style.background = '#ffffff';
+            badge.style.color = '#8c7a6d';
+            badge.style.borderColor = 'rgba(78, 57, 46, 0.2)';
+            badge.style.boxShadow = 'none';
+          }
+          if (label) {
+            label.style.fontWeight = '600';
+            label.style.color = '#8c7a6d';
+          }
+        }
+      });
+
+      // Update Mini Cards with dynamic shimmering border glow
+      const miniCards = document.querySelectorAll('.wealth-mini-card');
+      miniCards.forEach((card, i) => {
+        if (i === index) {
+          card.classList.add('is-active');
+          card.style.setProperty('--card-theme', stage.themeColor);
+          card.style.setProperty('--card-accent', stage.accentColor);
+          card.style.setProperty('--card-glow', stage.themeColor + '66');
+          card.style.transform = 'translateY(-3px)';
+        } else {
+          card.classList.remove('is-active');
+          card.style.transform = 'none';
+        }
+      });
+
+      // Smoothly update Spotlight Card elements
+      const card = document.getElementById('wealth-spotlight-card');
+      if (card) {
+        card.style.opacity = '0.7';
+        card.style.transform = 'scale(0.995)';
+        setTimeout(() => {
+          const wm = document.getElementById('spotlight-watermark');
+          if (wm) wm.innerText = stage.step;
+          
+          const tag = document.getElementById('spotlight-tag');
+          if (tag) {
+            tag.innerText = stage.tag;
+            tag.style.color = stage.themeColor;
+          }
+
+          const iconBox = document.getElementById('spotlight-icon-box');
+          const icon = document.getElementById('spotlight-icon');
+          if (icon) {
+            icon.className = 'fa-solid ' + stage.icon;
+            icon.style.color = stage.themeColor;
+          }
+
+          const title = document.getElementById('spotlight-title');
+          if (title) {
+            title.innerText = stage.title;
+            title.style.color = stage.themeColor;
+          }
+
+          const desc = document.getElementById('spotlight-desc');
+          if (desc) desc.innerText = stage.desc;
+
+          const pillarsContainer = document.getElementById('spotlight-pillars');
+          if (pillarsContainer) {
+            pillarsContainer.innerHTML = stage.pillars.map(p => `
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: #4e392e;">
+                <i class="fa-solid fa-circle-check" style="color: ${stage.accentColor}; font-size: 0.9rem;"></i>
+                <span>${p}</span>
+              </div>
+            `).join('');
+          }
+
+          const badge = document.getElementById('spotlight-badge');
+          if (badge) {
+            badge.style.color = stage.badgeColor;
+            badge.style.background = stage.badgeBg;
+            badge.style.borderColor = stage.badgeBorder;
+          }
+
+          const badgeIcon = document.getElementById('spotlight-badge-icon');
+          if (badgeIcon) {
+            badgeIcon.className = 'fa-solid ' + stage.badgeIcon;
+            badgeIcon.style.color = stage.accentColor;
+          }
+
+          const badgeText = document.getElementById('spotlight-badge-text');
+          if (badgeText) badgeText.innerText = stage.badgeText;
+
+          const counter = document.getElementById('spotlight-counter');
+          if (counter) counter.innerText = stage.step + ' / 06';
+
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 120);
+      }
+    }
+
+    function nextWealthStep() {
+      switchWealthStep((currentWealthStep + 1) % wealthStages.length);
+    }
+
+    function prevWealthStep() {
+      switchWealthStep((currentWealthStep - 1 + wealthStages.length) % wealthStages.length);
+    }
   </script>
 
 </body>
