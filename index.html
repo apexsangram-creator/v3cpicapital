@@ -76,7 +76,14 @@
       backdrop-filter: blur(24px) saturate(190%) !important;
       border: 1px solid rgba(255, 255, 255, 0.90) !important;
       box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.12), 0 2px 8px 0 rgba(151, 168, 187, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95) !important;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      display: flex !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      position: relative !important;
+      border-radius: 100px !important;
+      padding: 0.32rem 0.5rem !important;
+      max-width: 630px !important;
     }
 
     .navbar-links-wrapper:hover {
@@ -84,11 +91,77 @@
       border-color: #ffffff !important;
     }
 
+    .nav-slider-viewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nav-slider-track {
+      display: flex;
+      align-items: center;
+      width: 200%;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-slider-track.is-slid {
+      transform: translateX(-50%);
+    }
+
+    .nav-page {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.25rem;
+      flex-shrink: 0;
+      transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-slider-track.is-slid .nav-page-1 {
+      opacity: 0;
+      transform: scale(0.92) translateX(-25px);
+      pointer-events: none;
+    }
+
+    .nav-slider-track:not(.is-slid) .nav-page-2 {
+      opacity: 0;
+      transform: scale(0.92) translateX(25px);
+      pointer-events: none;
+    }
+
+    .nav-slide-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #1e130b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin: 0 2px;
+      flex-shrink: 0;
+      padding: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      font-size: 0.68rem;
+    }
+
+    .nav-slide-btn:hover {
+      background: #1e262c;
+      color: #ffffff;
+      transform: scale(1.1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
     .navbar-link {
       color: rgba(20, 20, 20, 0.85) !important;
       font-weight: 500 !important;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
       border-radius: 3.13rem !important;
+      white-space: nowrap !important;
     }
 
     .navbar-link:hover {
@@ -283,18 +356,54 @@
           <img src="images/logo/white.png" alt="CPI Capital" loading="lazy" class="navbar-logo-img" style="height: 48px; width: 48px; object-fit: contain; display: block;">
         </a>
         <div class="navbar-links-desktop">
-          <div class="navbar-links-wrapper"><a href="/" aria-current="page"
-              class="navbar-link w-inline-block w--current">
-              <div>Home<br></div>
-            </a><a href="#scroll" class="navbar-link w-inline-block">
-              <div>About Us<br></div>
-            </a><a href="#growth" class="navbar-link w-inline-block">
-              <div>Our Recent Growth<br></div>
-            </a><a href="#investment" class="navbar-link w-inline-block">
-              <div>Opportunities<br></div>
-            </a><a href="#portfolio" class="navbar-link w-inline-block">
-              <div>Portfolio<br></div>
-            </a></div>
+          <div class="navbar-links-wrapper">
+            <div class="nav-slider-viewport">
+              <div id="nav-slider-track" class="nav-slider-track">
+                
+                <!-- Page 1 (Primary 5 Links) -->
+                <div class="nav-page nav-page-1">
+                  <a href="/" aria-current="page" class="navbar-link w-inline-block w--current">
+                    <div>Home</div>
+                  </a>
+                  <a href="#investment" class="navbar-link w-inline-block">
+                    <div>Investor Login</div>
+                  </a>
+                  <a href="#growth" class="navbar-link w-inline-block">
+                    <div>Track Record</div>
+                  </a>
+                  <a href="#investment" class="navbar-link w-inline-block">
+                    <div>EMD</div>
+                  </a>
+                  <a href="#about" class="navbar-link w-inline-block">
+                    <div>Knowledge Centre</div>
+                  </a>
+                  <button class="nav-slide-btn" type="button" onclick="toggleNavSlider(true, event)" title="More menus" aria-label="More menus">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                </div>
+
+                <!-- Page 2 (Extended Slide-in Links) -->
+                <div class="nav-page nav-page-2">
+                  <button class="nav-slide-btn" type="button" onclick="toggleNavSlider(false, event)" title="Back to main menus" aria-label="Back to main menus">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <a href="#about" class="navbar-link w-inline-block">
+                    <div>Our Team</div>
+                  </a>
+                  <a href="#webinars" class="navbar-link w-inline-block">
+                    <div>News and Media</div>
+                  </a>
+                  <a href="#contact" class="navbar-link w-inline-block" onclick="openFloatingContactForm(event)">
+                    <div>Meet With Us</div>
+                  </a>
+                  <a href="#contact" class="navbar-link w-inline-block" onclick="openFloatingContactForm(event)" style="background: #1e262c !important; color: #ffffff !important; font-weight: 700 !important; box-shadow: 0 4px 14px rgba(0,0,0,0.18) !important;">
+                    <div>Join Now</div>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
         <div class="navbar-btn"><a href="#investment" class="button btn-arrow nav-btn w-inline-block">
             <div>Investor Portal</div>
@@ -333,20 +442,36 @@
               </svg></div>
           </a></div>
         <div class="mobile-menu-links-wrapper">
-          <div class="navbar-links-wrapper"><a href="/" aria-current="page"
-              class="navbar-link w-inline-block w--current">
-              <div>Home<br></div>
-            </a><a href="#scroll" class="navbar-link w-inline-block">
-              <div>About Us<br></div>
-            </a><a href="#growth" class="navbar-link w-inline-block">
-              <div>Our Recent Growth<br></div>
-            </a><a href="#investment" class="navbar-link w-inline-block">
-              <div>Opportunities<br></div>
-            </a><a href="#portfolio" class="navbar-link w-inline-block">
-              <div>Portfolio<br></div>
-            </a><a href="#contact" class="navbar-link w-inline-block">
-              <div>Contact Us</div>
-            </a></div>
+          <div class="navbar-links-wrapper" style="flex-direction: column; align-items: stretch; gap: 0.45rem; padding: 1.25rem 1rem;">
+            <a href="/" aria-current="page" class="navbar-link w-inline-block w--current">
+              <div>Home</div>
+            </a>
+            <a href="#investment" class="navbar-link w-inline-block">
+              <div>Investor Login</div>
+            </a>
+            <a href="#growth" class="navbar-link w-inline-block">
+              <div>Track Record</div>
+            </a>
+            <a href="#investment" class="navbar-link w-inline-block">
+              <div>EMD</div>
+            </a>
+            <a href="#about" class="navbar-link w-inline-block">
+              <div>Knowledge Centre </div>
+            </a>
+
+             <a href="#about" class="navbar-link w-inline-block">
+              <div>Our Team</div>
+            </a>
+            <a href="#webinars" class="navbar-link w-inline-block">
+              <div>News and Media</div>
+            </a>
+            <a href="#contact" class="navbar-link w-inline-block" onclick="openFloatingContactForm(event)">
+              <div>Meet With Us</div>
+            </a>
+            <a href="#contact" class="navbar-link w-inline-block" onclick="openFloatingContactForm(event)" style="background: #1e262c !important; color: #ffffff !important; text-align: center;">
+              <div>Join Now</div>
+            </a>
+          </div>
         </div>
         <div class="mobile-menu-btm"><a href="#" class="link-contact w-inline-block">
             <div class="icon-18 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
@@ -2815,6 +2940,25 @@
 
   <script>
     let isDrawerManuallyClosed = false;
+
+    // Desktop Navbar Carousel Track Slider
+    function toggleNavSlider(toSecondPage, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const track = document.getElementById('nav-slider-track');
+      if (!track) return;
+      if (typeof toSecondPage === 'boolean') {
+        if (toSecondPage) {
+          track.classList.add('is-slid');
+        } else {
+          track.classList.remove('is-slid');
+        }
+      } else {
+        track.classList.toggle('is-slid');
+      }
+    }
 
     // CPI Advantage Sticky Card Toggle & Auto-Rotator
     function toggleCpiAdvantageCard(open, e) {
