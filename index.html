@@ -2009,35 +2009,6 @@
       </section>
       <!-- Modern Tinted Mix-Blend Wavy Flowing Newsletter Section end -->
 
-      <section id="contact" data-nav="" data-w-id="23b5626e-f22f-9d2a-ce15-a7cd7d8baaf7" class="section_cta">
-        <div class="bg-wrap"><img src="images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588.avif"
-            loading="lazy" sizes="100vw"
-            srcset="images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588-p-500.avif 500w, images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588-p-800.avif 800w, images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588-p-1080.avif 1080w, images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588.avif 2000w"
-            alt="" class="key_img is-cta">
-          <div class="overlay is-cta key_img"></div>
-        </div>
-        <div class="padding-global padding-section-large">
-          <div class="container">
-            <div class="cta_wrap">
-              <div class="w-layout-hflex header-center is-cta">
-                <h2 words="" class="h-64">Let's Connect</h2><a href="#contact" onclick="openFloatingContactForm(event)" data-wf--button--variant="base"
-                  data-w-id="b99ddc98-411d-ead4-2a4d-1c20d1214eeb" class="button btn-arrow w-inline-block">
-                  <div>Get in Touch</div>
-                  <div class="icon-arrow">
-                    <div class="svg-45-arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
-                        viewBox="0 0 16 16" fill="none">
-                        <path d="M9.62012 3.95361L13.6668 8.00028L9.62012 12.0469" stroke="currentColor"
-                          stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M2.33301 8H13.553" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"
-                          stroke-linejoin="round"></path>
-                      </svg></div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
     <section class="footer" style="background: #1b1410; color: #ffffff; padding: 4.5rem 0 2.5rem 0; border-top: 1px solid rgba(224, 176, 132, 0.15);">
       <div class="padding-global">
@@ -2779,35 +2750,51 @@
       }
     }
 
-    // Auto trigger slide-in when section_cta is in viewport, and slide-out when out of viewport
-    (function initContactViewportObserver() {
-      const ctaSection = document.querySelector('.section_cta');
+    // Connect all "Get in Touch" / "#contact" links and CTA buttons to open the drawer
+    // Plus Auto-Slide in when reaching the bottom of the page (Newsletter / Footer)
+    (function initContactDrawerTriggers() {
       const drawer = document.getElementById('floating-contact-drawer');
-      if (!ctaSection || !drawer) return;
+      if (!drawer) return;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (!isDrawerManuallyClosed) {
-              drawer.classList.add('is-active');
+      function bindContactLinks() {
+        document.querySelectorAll('a[href="#contact"], .nav-btn, [data-contact-trigger]').forEach(link => {
+          link.addEventListener('click', (e) => {
+            openFloatingContactForm(e);
+          });
+        });
+      }
+
+      function initBottomScrollObserver() {
+        const bottomTrigger = document.getElementById('newsletter') || document.querySelector('.footer');
+        if (!bottomTrigger) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!isDrawerManuallyClosed) {
+                drawer.classList.add('is-active');
+              }
+            } else {
+              drawer.classList.remove('is-active');
+              isDrawerManuallyClosed = false; // Reset so when user scrolls back down, it can trigger again
             }
-          } else {
-            drawer.classList.remove('is-active');
-            isDrawerManuallyClosed = false; // Reset so next time it scrolls into view, it triggers again
-          }
+          });
+        }, {
+          threshold: 0.15
         });
-      }, {
-        threshold: 0.2
-      });
 
-      observer.observe(ctaSection);
+        observer.observe(bottomTrigger);
+      }
 
-      // Connect all "Get in Touch" / "#contact" links to open the drawer
-      document.querySelectorAll('a[href="#contact"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-          openFloatingContactForm(e);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          bindContactLinks();
+          initBottomScrollObserver();
         });
-      });
+      } else {
+        bindContactLinks();
+        initBottomScrollObserver();
+      }
     })();
   </script>
 
