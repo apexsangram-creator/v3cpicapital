@@ -2323,8 +2323,8 @@
       });
     })();
   </script>
-  <!-- Floating Sticky YoY Growth Widget start -->
-  <div id="cpi-growth-widget" style="position: fixed; top: 24px; right: 24px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Floating Sticky YoY Growth Widget (Top Right) start -->
+  <div id="cpi-growth-widget" style="position: fixed; top: 24px; right: 24px; z-index: 99998; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
     
     <style>
       @keyframes livePulseDot {
@@ -2336,8 +2336,8 @@
         transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
       }
       #growth-pill-btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(82, 183, 136, 0.28) !important;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 25px rgba(82, 183, 136, 0.28) !important;
       }
       #portfolio-growth-modal {
         transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
@@ -2360,34 +2360,139 @@
       }
     </style>
 
-    <!-- Collapsed Floating Pill Trigger -->
-    <div id="growth-pill-btn" onclick="openPortfolioGrowthModal()" style="background: rgba(8, 22, 15, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(82, 183, 136, 0.45); border-radius: 1rem; padding: 0.6rem 1.15rem; display: flex; align-items: center; gap: 12px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(82, 183, 136, 0.15); user-select: none;">
+    <!-- Top-Right Growth Pill Trigger -->
+    <div id="growth-pill-btn" onclick="openPortfolioGrowthModal()" style="background: rgba(8, 22, 15, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(82, 183, 136, 0.45); border-radius: 1rem; padding: 0.55rem 1.1rem; display: flex; align-items: center; gap: 10px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(82, 183, 136, 0.15); user-select: none;">
       
       <!-- Green Icon with Pulsing Dot -->
-      <div style="position: relative; width: 38px; height: 38px; border-radius: 0.65rem; background: rgba(82, 183, 136, 0.15); border: 1px solid rgba(82, 183, 136, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-        <i class="fa-solid fa-chart-line" style="color: #52b788; font-size: 1.1rem;"></i>
-        <span style="position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border-radius: 50%; background: #52b788; animation: livePulseDot 2s infinite;"></span>
+      <div style="position: relative; width: 34px; height: 34px; border-radius: 0.6rem; background: rgba(82, 183, 136, 0.15); border: 1px solid rgba(82, 183, 136, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <i class="fa-solid fa-chart-line" style="color: #52b788; font-size: 1rem;"></i>
+        <span style="position: absolute; top: -3px; right: -3px; width: 7px; height: 7px; border-radius: 50%; background: #52b788; animation: livePulseDot 2s infinite;"></span>
       </div>
 
       <!-- Text Content -->
       <div>
         <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="background: #d4b290; color: #1e130b; font-size: 0.62rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase;">GROWTH UPDATE</span>
+          <span style="background: #d4b290; color: #1e130b; font-size: 0.6rem; font-weight: 800; padding: 0.12rem 0.45rem; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase;">GROWTH UPDATE</span>
           <span style="color: #52b788; font-size: 0.72rem; font-weight: 800;">+50% YoY AUM</span>
         </div>
-        <div style="font-size: 0.82rem; font-weight: 700; color: #ffffff; margin-top: 2px;">
+        <div style="font-size: 0.8rem; font-weight: 700; color: #ffffff; margin-top: 2px;">
           Target IRR: <span style="color: #e0b084; font-weight: 800;">20.1% – 26.7%</span>
         </div>
       </div>
 
       <!-- Right Chevron -->
       <div style="margin-left: 2px;">
-        <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: #e0b084;"></i>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: #e0b084;"></i>
       </div>
 
     </div>
 
   </div>
+  <!-- Floating Sticky YoY Growth Widget end -->
+
+  <!-- Floating Sticky CPI Advantage Widget (Bottom Right) start -->
+  <div id="cpi-advantage-widget" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <style>
+      @keyframes pulseAdvantageDot {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(82, 183, 136, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+      }
+      #cpi-advantage-pill {
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      }
+      #cpi-advantage-pill:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(82, 183, 136, 0.25) !important;
+        border-color: rgba(82, 183, 136, 0.8) !important;
+      }
+      #cpi-advantage-card-modal {
+        transform-origin: bottom right;
+        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+      }
+      #cpi-advantage-card-modal.is-hidden {
+        opacity: 0;
+        transform: scale(0.88) translateY(12px);
+        pointer-events: none;
+        visibility: hidden;
+      }
+      #cpi-advantage-card-modal.is-visible {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        pointer-events: auto;
+        visibility: visible;
+      }
+      .advantage-join-btn:hover {
+        background: #11171c !important;
+        transform: translateY(-1px);
+      }
+    </style>
+
+    <!-- Collapsed Sticky Pill Trigger with Auto-Rotating Text (Bottom Right) -->
+    <div id="cpi-advantage-pill" onclick="toggleCpiAdvantageCard(true, event)" style="background: rgba(10, 26, 18, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1.5px solid rgba(82, 183, 136, 0.5); border-radius: 999px; padding: 0.6rem 1.15rem; display: flex; align-items: center; gap: 10px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 18px rgba(82, 183, 136, 0.15); user-select: none;">
+      
+      <!-- Shield Icon with Pulsing Dot -->
+      <div style="position: relative; width: 28px; height: 28px; border-radius: 50%; background: rgba(82, 183, 136, 0.18); border: 1px solid rgba(82, 183, 136, 0.45); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <i class="fa-solid fa-shield-halved" style="color: #52b788; font-size: 0.85rem;"></i>
+        <span style="position: absolute; top: -2px; right: -2px; width: 7px; height: 7px; border-radius: 50%; background: #52b788; animation: pulseAdvantageDot 2s infinite;"></span>
+      </div>
+
+      <!-- Auto-Rotating Dynamic Title -->
+      <div id="cpi-advantage-rotator" style="font-size: 0.84rem; font-weight: 700; color: #ffffff; white-space: nowrap; transition: opacity 0.3s ease, transform 0.3s ease;">
+        <span style="color: #e0b084;">CPI Advantage:</span> Tax-Efficient Returns
+      </div>
+
+      <!-- Right Chevron Indicator -->
+      <div style="margin-left: 2px; width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center;">
+        <i class="fa-solid fa-chevron-up" style="font-size: 0.62rem; color: #e0b084;"></i>
+      </div>
+
+    </div>
+
+    <!-- Expanded Sticky Modal Card (Opens Upwards on Bottom-Right) -->
+    <div id="cpi-advantage-card-modal" class="is-hidden" style="position: absolute; bottom: calc(100% + 12px); right: 0; width: 310px; background: #ffffff; border: 2px solid #194d33; border-radius: 1.5rem; padding: 1.5rem 1.4rem; box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32); color: #1e262c;">
+      
+      <!-- Card Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(25, 77, 51, 0.15); padding-bottom: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 8px; color: #194d33; font-weight: 800; font-family: 'Playfair Display', Georgia, serif; font-size: 0.98rem; letter-spacing: 0.04em;">
+          <i class="fa-solid fa-shield-halved" style="color: #194d33; font-size: 1.15rem;"></i>
+          <span>CPI CAPITAL ADVANTAGE</span>
+        </div>
+        <button onclick="toggleCpiAdvantageCard(false, event)" style="background: none; border: none; font-size: 1.15rem; color: #4e392e; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 2px;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- 4 Advantage Checklist Items -->
+      <div style="display: flex; flex-flow: column; gap: 0.85rem; margin-bottom: 1.4rem; font-size: 0.88rem; font-weight: 700; color: #1e262c;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i class="fa-solid fa-check" style="color: #194d33; font-size: 0.95rem; font-weight: 900;"></i>
+          <span>Turnkey Passive Cash–Flow</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i class="fa-solid fa-check" style="color: #194d33; font-size: 0.95rem; font-weight: 900;"></i>
+          <span>Institutional Underwriting</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i class="fa-solid fa-check" style="color: #194d33; font-size: 0.95rem; font-weight: 900;"></i>
+          <span>US Sunbelt BTR &amp; Value–Add</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i class="fa-solid fa-check" style="color: #194d33; font-size: 0.95rem; font-weight: 900;"></i>
+          <span>Tax Depreciation Pass–Through</span>
+        </div>
+      </div>
+
+      <!-- Join Investor Club Action CTA Button -->
+      <a href="#contact" class="advantage-join-btn" onclick="toggleCpiAdvantageCard(false, event); openFloatingContactForm(event);" style="display: block; width: 100%; text-align: center; background: #1e262c; color: #ffffff; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; padding: 0.85rem 1rem; border-radius: 0.65rem; text-decoration: none; transition: all 0.2s ease; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);">
+        JOIN INVESTOR CLUB
+      </a>
+
+    </div>
+
+  </div>
+  <!-- Floating Sticky CPI Advantage Widget end -->
 
   <!-- Full-Screen Annual Portfolio Report Modal Overlay start -->
   <div id="portfolio-growth-modal" style="position: fixed; inset: 0; z-index: 100000; background: rgba(4, 10, 7, 0.94); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; visibility: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
@@ -2631,6 +2736,70 @@
   <script>
     let isDrawerManuallyClosed = false;
 
+    // CPI Advantage Sticky Card Toggle & Auto-Rotator
+    function toggleCpiAdvantageCard(open, e) {
+      if (e) {
+        e.stopPropagation();
+      }
+      const card = document.getElementById('cpi-advantage-card-modal');
+      if (!card) return;
+      if (open === true) {
+        card.classList.remove('is-hidden');
+        card.classList.add('is-visible');
+      } else if (open === false) {
+        card.classList.remove('is-visible');
+        card.classList.add('is-hidden');
+      } else {
+        const isCurrentlyOpen = card.classList.contains('is-visible');
+        if (isCurrentlyOpen) {
+          card.classList.remove('is-visible');
+          card.classList.add('is-hidden');
+        } else {
+          card.classList.remove('is-hidden');
+          card.classList.add('is-visible');
+        }
+      }
+    }
+
+    // Auto-rotate the CPI Advantage title every 3.2 seconds
+    (function initCpiAdvantageRotator() {
+      const titles = [
+        '<span style="color: #e0b084;">CPI Advantage:</span> Tax-Efficient Returns',
+        '<span style="color: #e0b084;">CPI Advantage:</span> Simplified Passive Income',
+        '<span style="color: #e0b084;">CPI Advantage:</span> Value-Add Opportunities',
+        '<span style="color: #e0b084;">CPI Advantage:</span> Ground-up BTR Development'
+      ];
+      let currentIndex = 0;
+
+      setInterval(() => {
+        const rotator = document.getElementById('cpi-advantage-rotator');
+        if (!rotator) return;
+        
+        // Fade out
+        rotator.style.opacity = '0';
+        rotator.style.transform = 'translateY(-6px)';
+        
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % titles.length;
+          rotator.innerHTML = titles[currentIndex];
+          // Fade in
+          rotator.style.opacity = '1';
+          rotator.style.transform = 'translateY(0)';
+        }, 320);
+      }, 3200);
+    })();
+
+    // Close advantage card when clicking outside or pressing Escape
+    document.addEventListener('click', (e) => {
+      const widget = document.getElementById('cpi-advantage-widget');
+      const card = document.getElementById('cpi-advantage-card-modal');
+      if (card && card.classList.contains('is-visible')) {
+        if (widget && !widget.contains(e.target)) {
+          toggleCpiAdvantageCard(false);
+        }
+      }
+    });
+
     function openPortfolioGrowthModal() {
       const modal = document.getElementById('portfolio-growth-modal');
       if (modal) {
@@ -2647,7 +2816,7 @@
       }
     }
 
-    // Close growth modal on clicking backdrop or pressing Escape
+    // Close modals on clicking backdrop or pressing Escape
     document.addEventListener('DOMContentLoaded', () => {
       const modal = document.getElementById('portfolio-growth-modal');
       if (modal) {
@@ -2661,6 +2830,7 @@
         if (e.key === 'Escape') {
           closePortfolioGrowthModal();
           closeFloatingContactForm();
+          toggleCpiAdvantageCard(false);
         }
       });
     });
