@@ -1548,13 +1548,16 @@
       }
     }, { passive: true });
 
-    // Interactive Growth Filter Tabs & Badge Triggers
+    // Interactive Growth Filter Tabs & Badge Triggers with Soothing Color Themes
     (function() {
       const growthData = {
         aum: {
           indicator: 'Viewing: Cumulative Deal Volume (2021 – 2026)',
           title: 'Asset Progression & Capital Expansion',
           subtitle: 'Cumulative deal volume and transaction value across syndications',
+          themeColor: '#4e392e',
+          accentDot: '#d4b290',
+          shadowColor: 'rgba(78, 57, 46, 0.18)',
           badge1Val: '+500%',
           badge1Lbl: '5-Yr Expansion',
           badge2Val: '0%',
@@ -1562,17 +1565,20 @@
           footerNote: 'Figures represent cumulative transaction volume and aggregate asset value managed across syndication entities.',
           footerStat: 'Annual Average Asset Appreciation: <span style="color: #9d7d5d;">+16.8%</span>',
           bars: [
-            { year: '2021', val: '$25M', height: '55px', sub: 'Platform Launch' },
-            { year: '2022', val: '$55M', height: '105px', sub: 'Sunbelt Entry' },
-            { year: '2023', val: '$90M', height: '155px', sub: '800+ Doors' },
-            { year: '2024', val: '$120M', height: '205px', sub: 'BTR & JVs' },
-            { year: '2025', val: '★ $150M+', height: '250px', sub: '1,500+ Doors Active' }
+            { year: '2021', val: '$25M', height: '55px', sub: 'Platform Launch', gradient: 'linear-gradient(180deg, #d4b290 0%, #b89b7d 100%)' },
+            { year: '2022', val: '$55M', height: '105px', sub: 'Sunbelt Entry', gradient: 'linear-gradient(180deg, #c7a480 0%, #a88869 100%)' },
+            { year: '2023', val: '$90M', height: '155px', sub: '800+ Doors', gradient: 'linear-gradient(180deg, #b8926d 0%, #947250 100%)' },
+            { year: '2024', val: '$120M', height: '205px', sub: 'BTR & JVs', gradient: 'linear-gradient(180deg, #9d7d5d 0%, #7d5e42 100%)' },
+            { year: '2025', val: '★ $150M+', height: '250px', sub: '1,500+ Doors Active', gradient: 'linear-gradient(180deg, #4e392e 0%, #2f221b 100%)' }
           ]
         },
         expansion: {
           indicator: 'Viewing: 5-Year Compounded AUM & Deal Velocity (+500%)',
           title: '5-Year Growth Acceleration (+500% Compounded Scaling)',
           subtitle: 'From $25M in 2021 to $150M+ in 2026 across premier Sunbelt multifamily assets',
+          themeColor: '#5c3d2e',
+          accentDot: '#e0b084',
+          shadowColor: 'rgba(92, 61, 46, 0.2)',
           badge1Val: '+500%',
           badge1Lbl: '5-Yr Expansion',
           badge2Val: '0%',
@@ -1580,83 +1586,95 @@
           footerNote: 'Demonstrates consistent 43.1% CAGR in transaction volume and institutional capital deployment.',
           footerStat: 'Compounded Volume Growth: <span style="color: #9d7d5d;">6.0x AUM Scaling</span>',
           bars: [
-            { year: '2021', val: '$25M (Base)', height: '55px', sub: 'Baseline Inception' },
-            { year: '2022', val: '$55M (+120%)', height: '105px', sub: 'Sunbelt Inroads' },
-            { year: '2023', val: '$90M (+260%)', height: '155px', sub: 'Fund I Milestone' },
-            { year: '2024', val: '$120M (+380%)', height: '205px', sub: 'BTR Integration' },
-            { year: '2025', val: '★ $150M+ (+500%)', height: '250px', sub: '1,500+ Doors Scaled' }
+            { year: '2021', val: '$25M (Base)', height: '55px', sub: 'Baseline Inception', gradient: 'linear-gradient(180deg, #d8b495 0%, #be9675 100%)' },
+            { year: '2022', val: '$55M (+120%)', height: '105px', sub: 'Sunbelt Inroads', gradient: 'linear-gradient(180deg, #c79a72 0%, #a87950 100%)' },
+            { year: '2023', val: '$90M (+260%)', height: '155px', sub: 'Fund I Milestone', gradient: 'linear-gradient(180deg, #b07e53 0%, #8c5d33 100%)' },
+            { year: '2024', val: '$120M (+380%)', height: '205px', sub: 'BTR Integration', gradient: 'linear-gradient(180deg, #915e34 0%, #70401b 100%)' },
+            { year: '2025', val: '★ $150M+ (+500%)', height: '250px', sub: '1,500+ Doors Scaled', gradient: 'linear-gradient(180deg, #5c3d2e 0%, #362015 100%)' }
           ]
         },
         safety: {
           indicator: 'Viewing: 100% Principal Protection & Risk Underwriting',
           title: 'Principal Safety & Downside Protection (0% Capital Loss)',
           subtitle: '100% of investor principal preserved with zero defaults or capital calls',
+          themeColor: '#4a3f35',
+          accentDot: '#cbb69d',
+          shadowColor: 'rgba(74, 63, 53, 0.2)',
           badge1Val: '+500%',
           badge1Lbl: '5-Yr Expansion',
           badge2Val: '0%',
           badge2Lbl: 'Capital Loss',
           footerNote: 'Secured with conservative loan-to-value (55-65% LTV), long-term fixed-rate agency financing, and strong cash reserves.',
-          footerStat: 'Principal Protection Record: <span style="color: #9d7d5d;">100% (Zero Principal Loss)</span>',
+          footerStat: 'Principal Protection Record: <span style="color: #4a3f35;">100% (Zero Principal Loss)</span>',
           bars: [
-            { year: '2021', val: '100% Safe', height: '240px', sub: '$25M Preserved' },
-            { year: '2022', val: '100% Safe', height: '240px', sub: '$55M Preserved' },
-            { year: '2023', val: '100% Safe', height: '240px', sub: '$90M Preserved' },
-            { year: '2024', val: '100% Safe', height: '240px', sub: '$120M Preserved' },
-            { year: '2025', val: '★ 100% Safe', height: '250px', sub: '$150M+ Fully Intact' }
+            { year: '2021', val: '100% Safe', height: '240px', sub: '$25M Preserved', gradient: 'linear-gradient(180deg, #b8ab9a 0%, #998a77 100%)' },
+            { year: '2022', val: '100% Safe', height: '240px', sub: '$55M Preserved', gradient: 'linear-gradient(180deg, #a49481 0%, #857461 100%)' },
+            { year: '2023', val: '100% Safe', height: '240px', sub: '$90M Preserved', gradient: 'linear-gradient(180deg, #8f7e6a 0%, #6f5f4b 100%)' },
+            { year: '2024', val: '100% Safe', height: '240px', sub: '$120M Preserved', gradient: 'linear-gradient(180deg, #786754 0%, #584836 100%)' },
+            { year: '2025', val: '★ 100% Safe', height: '250px', sub: '$150M+ Fully Intact', gradient: 'linear-gradient(180deg, #4a3f35 0%, #2b231b 100%)' }
           ]
         },
         doors: {
           indicator: 'Viewing: Multifamily Doors & Residential Units Managed',
           title: 'Multifamily Door Count & Unit Scaling',
           subtitle: 'Stabilized residential units across core Sunbelt growth corridors',
+          themeColor: '#7c3e25',
+          accentDot: '#f4a261',
+          shadowColor: 'rgba(124, 62, 37, 0.2)',
           badge1Val: '1,500+',
           badge1Lbl: 'Active Units',
           badge2Val: '94.2%',
           badge2Lbl: 'Portfolio Occupancy',
           footerNote: 'Includes garden-style multifamily communities and build-to-rent single-family rental subdivisions.',
-          footerStat: 'Average Community Size: <span style="color: #9d7d5d;">240 Units</span>',
+          footerStat: 'Average Community Size: <span style="color: #7c3e25;">240 Units</span>',
           bars: [
-            { year: '2021', val: '250', height: '50px', sub: 'Initial 250 Units' },
-            { year: '2022', val: '520', height: '95px', sub: 'Dallas & Houston' },
-            { year: '2023', val: '840', height: '145px', sub: 'Orlando & Tampa' },
-            { year: '2024', val: '1,180', height: '195px', sub: 'Atlanta & Phoenix' },
-            { year: '2025', val: '★ 1,500+', height: '250px', sub: 'Scaled Sunbelt Portfolio' }
+            { year: '2021', val: '250', height: '50px', sub: 'Initial 250 Units', gradient: 'linear-gradient(180deg, #f4c2a0 0%, #e09d73 100%)' },
+            { year: '2022', val: '520', height: '95px', sub: 'Dallas & Houston', gradient: 'linear-gradient(180deg, #e59f75 0%, #cf8052 100%)' },
+            { year: '2023', val: '840', height: '145px', sub: 'Orlando & Tampa', gradient: 'linear-gradient(180deg, #d47e4e 0%, #b65f2f 100%)' },
+            { year: '2024', val: '1,180', height: '195px', sub: 'Atlanta & Phoenix', gradient: 'linear-gradient(180deg, #b85f31 0%, #94451c 100%)' },
+            { year: '2025', val: '★ 1,500+', height: '250px', sub: 'Scaled Sunbelt Portfolio', gradient: 'linear-gradient(180deg, #7c3e25 0%, #4f2210 100%)' }
           ]
         },
         yield: {
           indicator: 'Viewing: Historical Target Yields & Investor Distributions',
           title: 'Investor Yield & Net IRR Performance',
           subtitle: 'Consistent quarterly cash flow distributions and target project returns',
+          themeColor: '#234a38',
+          accentDot: '#74c69d',
+          shadowColor: 'rgba(35, 74, 56, 0.2)',
           badge1Val: '18.4%',
           badge1Lbl: 'Avg Target IRR',
           badge2Val: '100%',
           badge2Lbl: 'On-Time Distributions',
           footerNote: 'All distributions paid quarterly with tax-advantaged depreciation benefits passed through to partners.',
-          footerStat: 'Average Cash-on-Cash Return: <span style="color: #9d7d5d;">8.0% – 9.5%</span>',
+          footerStat: 'Average Cash-on-Cash Return: <span style="color: #234a38;">8.0% – 9.5%</span>',
           bars: [
-            { year: '2021', val: '8.0%', height: '90px', sub: '8.0% Cash-on-Cash' },
-            { year: '2022', val: '8.3%', height: '115px', sub: 'Quarterly Dividends' },
-            { year: '2023', val: '8.7%', height: '140px', sub: 'Operational Alpha' },
-            { year: '2024', val: '9.2%', height: '180px', sub: 'Value-Add Renovation Exits' },
-            { year: '2025', val: '★ 18.4%', height: '250px', sub: 'Target Net IRR' }
+            { year: '2021', val: '8.0%', height: '90px', sub: '8.0% Cash-on-Cash', gradient: 'linear-gradient(180deg, #b7e4c7 0%, #95d5b2 100%)' },
+            { year: '2022', val: '8.3%', height: '115px', sub: 'Quarterly Dividends', gradient: 'linear-gradient(180deg, #95d5b2 0%, #74c69d 100%)' },
+            { year: '2023', val: '8.7%', height: '140px', sub: 'Operational Alpha', gradient: 'linear-gradient(180deg, #74c69d 0%, #52b788 100%)' },
+            { year: '2024', val: '9.2%', height: '180px', sub: 'Value-Add Renovation Exits', gradient: 'linear-gradient(180deg, #40916c 0%, #2d6a4f 100%)' },
+            { year: '2025', val: '★ 18.4%', height: '250px', sub: 'Target Net IRR', gradient: 'linear-gradient(180deg, #234a38 0%, #132d21 100%)' }
           ]
         },
         markets: {
           indicator: 'Viewing: Strategic Sunbelt Metropolitan Expansion',
           title: 'Geographic Sunbelt Market Footprint',
           subtitle: 'Acquiring in high-migration, landlord-friendly business hubs',
+          themeColor: '#2b4257',
+          accentDot: '#8ecae6',
+          shadowColor: 'rgba(43, 66, 87, 0.2)',
           badge1Val: '5 States',
           badge1Lbl: 'Sunbelt Footprint',
           badge2Val: '12+',
           badge2Lbl: 'High-Growth MSAs',
           footerNote: 'Focusing exclusively on states with positive net population growth, job creation, and favorable business climates.',
-          footerStat: 'Top Metros: <span style="color: #9d7d5d;">Dallas, Houston, Atlanta, Phoenix, Orlando</span>',
+          footerStat: 'Top Metros: <span style="color: #2b4257;">Dallas, Houston, Atlanta, Phoenix, Orlando</span>',
           bars: [
-            { year: '2021', val: '1 State', height: '60px', sub: 'Texas Foundation' },
-            { year: '2022', val: '2 States', height: '110px', sub: 'Texas & Florida' },
-            { year: '2023', val: '3 States', height: '155px', sub: '+ Georgia Hubs' },
-            { year: '2024', val: '4 States', height: '200px', sub: '+ Arizona Growth' },
-            { year: '2025', val: '★ 5 States', height: '250px', sub: '+ Carolinas Corridor' }
+            { year: '2021', val: '1 State', height: '60px', sub: 'Texas Foundation', gradient: 'linear-gradient(180deg, #c5d8e8 0%, #a4c2db 100%)' },
+            { year: '2022', val: '2 States', height: '110px', sub: 'Texas & Florida', gradient: 'linear-gradient(180deg, #9ebfdc 0%, #7aa5cb 100%)' },
+            { year: '2023', val: '3 States', height: '155px', sub: '+ Georgia Hubs', gradient: 'linear-gradient(180deg, #6c97be 0%, #4b78a0 100%)' },
+            { year: '2024', val: '4 States', height: '200px', sub: '+ Arizona Growth', gradient: 'linear-gradient(180deg, #3d678c 0%, #294d6e 100%)' },
+            { year: '2025', val: '★ 5 States', height: '250px', sub: '+ Carolinas Corridor', gradient: 'linear-gradient(180deg, #2b4257 0%, #172836 100%)' }
           ]
         }
       };
@@ -1667,34 +1685,50 @@
           const metric = this.getAttribute('data-metric');
           if (!growthData[metric]) return;
 
+          const data = growthData[metric];
+
+          // Reset all buttons
           buttons.forEach(b => {
             b.classList.remove('is-active');
-            if (b.id === 'top-badge-expansion' || b.id === 'top-badge-safety') {
-              b.style.background = 'rgba(78, 57, 46, 0.05)';
-              b.style.color = '#4e392e';
-              b.style.border = '1px solid rgba(78, 57, 46, 0.12)';
-              b.style.boxShadow = 'none';
-            } else {
-              b.style.background = 'rgba(78, 57, 46, 0.05)';
-              b.style.color = '#4e392e';
-              b.style.border = '1px solid rgba(78, 57, 46, 0.12)';
-              b.style.boxShadow = 'none';
-              const dot = b.querySelector('span');
-              if (dot) dot.style.background = '#9d7d5d';
-            }
+            b.style.background = 'rgba(78, 57, 46, 0.05)';
+            b.style.color = '#4e392e';
+            b.style.border = '1px solid rgba(78, 57, 46, 0.12)';
+            b.style.boxShadow = 'none';
+            const dot = b.querySelector('span');
+            if (dot) dot.style.background = '#9d7d5d';
           });
 
+          // Set active button styling with its own soothing theme color
           this.classList.add('is-active');
-          this.style.background = '#4e392e';
+          this.style.background = data.themeColor;
           this.style.color = '#ffffff';
-          this.style.border = '1px solid #4e392e';
-          this.style.boxShadow = '0 4px 12px rgba(78,57,46,0.15)';
+          this.style.border = '1px solid ' + data.themeColor;
+          this.style.boxShadow = '0 4px 14px ' + data.shadowColor;
           const activeDot = this.querySelector('span');
-          if (activeDot) activeDot.style.background = '#d4b290';
+          if (activeDot) activeDot.style.background = data.accentDot;
 
-          const data = growthData[metric];
+          // Also highlight corresponding top badge if matching
+          if (metric === 'expansion') {
+            const bExp = document.getElementById('top-badge-expansion');
+            if (bExp) {
+              bExp.style.background = data.themeColor;
+              bExp.style.color = '#ffffff';
+              bExp.style.border = '1px solid ' + data.themeColor;
+            }
+          } else if (metric === 'safety') {
+            const bSafe = document.getElementById('top-badge-safety');
+            if (bSafe) {
+              bSafe.style.background = data.themeColor;
+              bSafe.style.color = '#ffffff';
+              bSafe.style.border = '1px solid ' + data.themeColor;
+            }
+          }
+
+          // Update header texts & indicator
           const indicator = document.getElementById('growth-active-indicator');
-          if (indicator) indicator.innerHTML = '<span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: #9d7d5d;"></span> ' + data.indicator;
+          if (indicator) {
+            indicator.innerHTML = '<span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: ' + data.themeColor + ';"></span> ' + data.indicator;
+          }
 
           const titleEl = document.getElementById('chart-dashboard-title');
           if (titleEl) titleEl.innerText = data.title;
@@ -1718,13 +1752,26 @@
           const fStat = document.getElementById('chart-footer-stat');
           if (fStat) fStat.innerHTML = data.footerStat;
 
+          // Animate and recolor each chart bar smoothly
           data.bars.forEach(barItem => {
             const valEl = document.getElementById('bar-val-' + barItem.year);
             const fillEl = document.getElementById('bar-fill-' + barItem.year);
             const subEl = document.getElementById('bar-sub-' + barItem.year);
 
-            if (valEl) valEl.innerHTML = barItem.val;
-            if (fillEl) fillEl.style.height = barItem.height;
+            if (valEl) {
+              if (barItem.year === '2025') {
+                valEl.innerHTML = barItem.val;
+                valEl.style.background = data.themeColor;
+                valEl.style.color = '#ffffff';
+              } else {
+                valEl.innerHTML = barItem.val;
+                valEl.style.color = data.themeColor;
+              }
+            }
+            if (fillEl) {
+              fillEl.style.height = barItem.height;
+              fillEl.style.background = barItem.gradient;
+            }
             if (subEl) subEl.innerText = barItem.sub;
           });
         });
