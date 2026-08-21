@@ -2324,151 +2324,231 @@
     })();
   </script>
   <!-- Floating Sticky YoY Growth Widget start -->
-  <div id="cpi-growth-widget" style="position: fixed; bottom: 28px; right: 28px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <div id="cpi-growth-widget" style="position: fixed; top: 24px; right: 24px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
     
     <style>
       @keyframes livePulseDot {
-        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(116, 198, 157, 0.7); }
-        70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(116, 198, 157, 0); }
-        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(116, 198, 157, 0); }
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(82, 183, 136, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+      }
+      #growth-pill-btn {
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
       }
       #growth-pill-btn:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(224, 176, 132, 0.25) !important;
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(82, 183, 136, 0.28) !important;
       }
-      #growth-card-modal {
-        transform-origin: bottom right;
-        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+      #portfolio-growth-modal {
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
       }
-      #growth-card-modal.is-hidden {
-        opacity: 0;
-        transform: scale(0.85) translateY(20px);
-        pointer-events: none;
-        visibility: hidden;
+      #portfolio-growth-modal.is-open {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
       }
-      #growth-card-modal.is-visible {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        pointer-events: auto;
-        visibility: visible;
+      #portfolio-growth-modal.is-open .modal-dialog-content {
+        transform: scale(1) translateY(0) !important;
+      }
+      .modal-dialog-content {
+        transform: scale(0.92) translateY(20px);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .close-growth-modal-btn:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        transform: rotate(90deg);
       }
     </style>
 
     <!-- Collapsed Floating Pill Trigger -->
-    <div id="growth-pill-btn" onclick="toggleGrowthWidget(true)" style="background: rgba(28, 20, 15, 0.95); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(224, 176, 132, 0.35); border-radius: 999px; padding: 0.65rem 1.15rem; display: flex; align-items: center; gap: 8px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); transition: all 0.25s ease; user-select: none;">
-      <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #74c69d; animation: livePulseDot 2s infinite;"></span>
-      <i class="fa-solid fa-arrow-trend-up" style="color: #74c69d; font-size: 0.88rem;"></i>
-      <div style="font-size: 0.86rem; font-weight: 800; color: #ffffff; display: flex; align-items: center; gap: 5px;">
-        <span style="color: #74c69d;">+42.8%</span>
-        <span style="font-size: 0.78rem; font-weight: 700; color: #d4b290; text-transform: uppercase; letter-spacing: 0.04em;">YoY AUM</span>
-      </div>
-      <div style="width: 20px; height: 20px; border-radius: 50%; background: rgba(224, 176, 132, 0.18); display: flex; align-items: center; justify-content: center; margin-left: 2px;">
-        <i class="fa-solid fa-chevron-up" style="font-size: 0.6rem; color: #e0b084;"></i>
-      </div>
-    </div>
-
-    <!-- Expanded Dashboard Modal Card -->
-    <div id="growth-card-modal" class="is-hidden" style="position: absolute; bottom: 0; right: 0; width: 340px; background: rgba(28, 20, 15, 0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(224, 176, 132, 0.35); border-radius: 1.5rem; padding: 1.6rem 1.4rem; box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55), 0 0 25px rgba(224, 176, 132, 0.15); color: #ffffff;">
+    <div id="growth-pill-btn" onclick="openPortfolioGrowthModal()" style="background: rgba(8, 22, 15, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(82, 183, 136, 0.45); border-radius: 1rem; padding: 0.6rem 1.15rem; display: flex; align-items: center; gap: 12px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(82, 183, 136, 0.15); user-select: none;">
       
-      <!-- Modal Header -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 0.85rem;">
-        <div style="display: flex; align-items: center; gap: 7px;">
-          <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #74c69d; animation: livePulseDot 2s infinite;"></span>
-          <span style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #e0b084;">Live YoY Portfolio Data</span>
-        </div>
-        <button onclick="toggleGrowthWidget(false)" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); width: 26px; height: 26px; border-radius: 50%; color: rgba(255, 255, 255, 0.8); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.75rem; transition: background 0.2s ease;">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+      <!-- Green Icon with Pulsing Dot -->
+      <div style="position: relative; width: 38px; height: 38px; border-radius: 0.65rem; background: rgba(82, 183, 136, 0.15); border: 1px solid rgba(82, 183, 136, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <i class="fa-solid fa-chart-line" style="color: #52b788; font-size: 1.1rem;"></i>
+        <span style="position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border-radius: 50%; background: #52b788; animation: livePulseDot 2s infinite;"></span>
       </div>
 
-      <!-- YoY Hero Stat Banner -->
-      <div style="background: linear-gradient(135deg, rgba(224, 176, 132, 0.12) 0%, rgba(116, 198, 157, 0.12) 100%); border: 1px solid rgba(224, 176, 132, 0.25); border-radius: 1rem; padding: 1rem 1.15rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-        <div>
-          <div style="font-size: 0.72rem; color: #d4b290; font-weight: 700; text-transform: uppercase; margin-bottom: 2px;">
-            YoY AUM Expansion
-          </div>
-          <div style="font-size: 1.85rem; font-weight: 900; color: #ffffff; line-height: 1; display: flex; align-items: baseline; gap: 4px;">
-            <span>+42.8%</span>
-            <span style="font-size: 0.8rem; color: #74c69d; font-weight: 700;">YoY</span>
-          </div>
+      <!-- Text Content -->
+      <div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="background: #d4b290; color: #1e130b; font-size: 0.62rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase;">GROWTH UPDATE</span>
+          <span style="color: #52b788; font-size: 0.72rem; font-weight: 800;">+50% YoY AUM</span>
         </div>
-        <div style="text-align: right;">
-          <div style="font-size: 0.7rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 2px;">Portfolio AUM</div>
-          <div style="font-size: 1.1rem; font-weight: 800; color: #e0b084;">$210M+</div>
+        <div style="font-size: 0.82rem; font-weight: 700; color: #ffffff; margin-top: 2px;">
+          Target IRR: <span style="color: #e0b084; font-weight: 800;">20.1% – 26.7%</span>
         </div>
       </div>
 
-      <!-- Sparkline Trajectory Graph -->
-      <div style="margin-bottom: 1.25rem;">
-        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 0.4rem;">
-          <span>5-Year Growth Trajectory</span>
-          <span style="color: #74c69d; font-weight: 700;">▲ 8.75x Multiple</span>
-        </div>
-        <div style="height: 52px; width: 100%; position: relative; background: rgba(0, 0, 0, 0.25); border-radius: 0.65rem; padding: 4px 6px; display: flex; align-items: flex-end; justify-content: space-between; border: 1px solid rgba(255, 255, 255, 0.06);">
-          <!-- 2021 -->
-          <div style="display: flex; flex-flow: column; align-items: center; width: 16%;">
-            <div style="width: 100%; height: 12px; background: rgba(224, 176, 132, 0.4); border-radius: 3px;"></div>
-            <span style="font-size: 0.58rem; color: rgba(255,255,255,0.5); margin-top: 3px;">'21</span>
-          </div>
-          <!-- 2022 -->
-          <div style="display: flex; flex-flow: column; align-items: center; width: 16%;">
-            <div style="width: 100%; height: 20px; background: rgba(224, 176, 132, 0.55); border-radius: 3px;"></div>
-            <span style="font-size: 0.58rem; color: rgba(255,255,255,0.5); margin-top: 3px;">'22</span>
-          </div>
-          <!-- 2023 -->
-          <div style="display: flex; flex-flow: column; align-items: center; width: 16%;">
-            <div style="width: 100%; height: 28px; background: rgba(224, 176, 132, 0.7); border-radius: 3px;"></div>
-            <span style="font-size: 0.58rem; color: rgba(255,255,255,0.5); margin-top: 3px;">'23</span>
-          </div>
-          <!-- 2024 -->
-          <div style="display: flex; flex-flow: column; align-items: center; width: 16%;">
-            <div style="width: 100%; height: 36px; background: rgba(224, 176, 132, 0.85); border-radius: 3px;"></div>
-            <span style="font-size: 0.58rem; color: rgba(255,255,255,0.5); margin-top: 3px;">'24</span>
-          </div>
-          <!-- 2025 -->
-          <div style="display: flex; flex-flow: column; align-items: center; width: 16%;">
-            <div style="width: 100%; height: 44px; background: linear-gradient(180deg, #74c69d, #2a9d8f); border-radius: 3px; box-shadow: 0 0 8px rgba(116, 198, 157, 0.5);"></div>
-            <span style="font-size: 0.58rem; color: #74c69d; font-weight: 800; margin-top: 3px;">'25</span>
-          </div>
-        </div>
+      <!-- Right Chevron -->
+      <div style="margin-left: 2px;">
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: #e0b084;"></i>
       </div>
-
-      <!-- 2x2 Metric Breakdown Grid -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 1.25rem;">
-        
-        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.85rem; padding: 0.75rem 0.85rem;">
-          <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-weight: 700;">Avg Net IRR</div>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">19.4%</div>
-          <div style="font-size: 0.62rem; color: #74c69d;">Target 18% – 22%</div>
-        </div>
-
-        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.85rem; padding: 0.75rem 0.85rem;">
-          <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-weight: 700;">Units / Doors</div>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">1,850+</div>
-          <div style="font-size: 0.62rem; color: #e0b084;">Sunbelt Metros</div>
-        </div>
-
-        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.85rem; padding: 0.75rem 0.85rem;">
-          <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-weight: 700;">Cash Yield</div>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">8.5% Avg</div>
-          <div style="font-size: 0.62rem; color: #74c69d;">Quarterly Passive</div>
-        </div>
-
-        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.85rem; padding: 0.75rem 0.85rem;">
-          <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-weight: 700;">Loss Rate</div>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #74c69d;">0.0%</div>
-          <div style="font-size: 0.62rem; color: #74c69d;">100% Capital Returned</div>
-        </div>
-
-      </div>
-
-      <!-- Action Button -->
-      <a href="#open-deals" onclick="toggleGrowthWidget(false)" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 0.75rem 1rem; background: linear-gradient(90deg, #d4b290, #f4a261); color: #362419; font-weight: 800; font-size: 0.82rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 18px rgba(244, 162, 97, 0.35); text-transform: uppercase; letter-spacing: 0.04em;">
-        <span>Unlock Active Allocations</span>
-        <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
-      </a>
 
     </div>
+
+  </div>
+
+  <!-- Full-Screen Annual Portfolio Report Modal Overlay start -->
+  <div id="portfolio-growth-modal" style="position: fixed; inset: 0; z-index: 100000; background: rgba(4, 10, 7, 0.94); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; visibility: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Modal Card Container -->
+    <div class="modal-dialog-content" style="position: relative; width: 1240px; max-width: 95vw; max-height: 92vh; overflow-y: auto; background: radial-gradient(circle at 15% 20%, #152d20 0%, #0c1811 50%, #060b08 100%); border: 1px solid rgba(82, 183, 136, 0.35); border-radius: 2rem; padding: 3.25rem 3.5rem; box-shadow: 0 35px 90px rgba(0, 0, 0, 0.8), 0 0 50px rgba(82, 183, 136, 0.15); color: #ffffff; display: grid; grid-template-columns: 1fr 1.2fr; gap: 3.5rem; align-items: center;">
+      
+      <!-- Close Button -->
+      <button class="close-growth-modal-btn" onclick="closePortfolioGrowthModal()" style="position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; z-index: 10;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Left Column: Report Details & Stats -->
+      <div>
+        <div style="margin-bottom: 1.25rem;">
+          <span style="background: rgba(45, 106, 79, 0.5); color: #74c69d; border: 1px solid #2d6a4f; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; padding: 0.4rem 0.95rem; border-radius: 6px; text-transform: uppercase;">
+            ANNUAL PORTFOLIO REPORT
+          </span>
+        </div>
+
+        <h2 style="font-size: 3.6rem; font-family: 'Playfair Display', Georgia, serif; color: #ffffff; line-height: 1.05; margin: 0 0 1.25rem 0; font-weight: 800; letter-spacing: -0.02em;">
+          $180M+ AUM<br>REACHED
+        </h2>
+
+        <p style="font-size: 1.05rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 2rem 0;">
+          CPI Capital's Sunbelt real estate portfolio expanded by over +50% year-over-year while maintaining a 100% on-time quarterly distribution record.
+        </p>
+
+        <!-- Stat Cards Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem;">
+          
+          <!-- Stat 1: Target IRR -->
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 1.15rem; padding: 1.35rem 1.25rem; text-align: center;">
+            <div style="font-size: 2rem; font-weight: 900; color: #e0b084; font-family: 'Playfair Display', serif; line-height: 1.1; margin-bottom: 0.35rem;">
+              20.1% - 26.7%
+            </div>
+            <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">
+              Target IRR / Net Return
+            </div>
+          </div>
+
+          <!-- Stat 2: On-Time Distribution -->
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 1.15rem; padding: 1.35rem 1.25rem; text-align: center;">
+            <div style="font-size: 2.2rem; font-weight: 900; color: #52b788; font-family: 'Playfair Display', serif; line-height: 1.1; margin-bottom: 0.35rem;">
+              100%
+            </div>
+            <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">
+              On-Time Distributions
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Action CTA Button -->
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="#contact" onclick="closePortfolioGrowthModal(); openFloatingContactForm();" style="display: inline-flex; align-items: center; gap: 8px; padding: 0.95rem 1.85rem; background: linear-gradient(90deg, #d4b290, #f4a261); color: #1e130b; font-weight: 800; font-size: 0.88rem; border-radius: 999px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 8px 24px rgba(244, 162, 97, 0.35); transition: transform 0.2s ease;">
+            <span>Schedule LP Diligence Call</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#open-deals" onclick="closePortfolioGrowthModal()" style="display: inline-flex; align-items: center; gap: 6px; padding: 0.95rem 1.5rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; font-weight: 700; font-size: 0.88rem; border-radius: 999px; text-decoration: none;">
+            <span>View Deal Rooms</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Portfolio AUM Chart -->
+      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(82, 183, 136, 0.25); border-radius: 1.5rem; padding: 2rem 2.25rem; display: flex; flex-flow: column; justify-content: space-between; position: relative;">
+        
+        <!-- Chart Masthead -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #ffffff;">
+            <i class="fa-solid fa-chart-line" style="color: #52b788;"></i>
+            <span>PORTFOLIO ASSET UNDER MANAGEMENT</span>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 800; color: #52b788; background: rgba(82, 183, 136, 0.15); border: 1px solid rgba(82, 183, 136, 0.3); padding: 0.25rem 0.75rem; border-radius: 999px;">
+            +50% YoY
+          </div>
+        </div>
+
+        <!-- SVG Chart Graphic Container -->
+        <div style="position: relative; width: 100%; height: 280px; margin-bottom: 1.25rem;">
+          
+          <svg viewBox="0 0 500 260" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible;">
+            <defs>
+              <linearGradient id="modalAumAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#52b788" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#52b788" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="modalAumLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#74c69d"/>
+                <stop offset="50%" stop-color="#52b788"/>
+                <stop offset="100%" stop-color="#d4b290"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Horizontal Grid Lines & Y-Axis Labels -->
+            <!-- $180M -->
+            <line x1="55" y1="20" x2="490" y2="20" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="45" y="24" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="end" font-weight="600">$180M</text>
+
+            <!-- $160M -->
+            <line x1="55" y1="60" x2="490" y2="60" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="45" y="64" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="end" font-weight="600">$160M</text>
+
+            <!-- $140M -->
+            <line x1="55" y1="100" x2="490" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="45" y="104" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="end" font-weight="600">$140M</text>
+
+            <!-- $120M -->
+            <line x1="55" y1="140" x2="490" y2="140" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="45" y="144" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="end" font-weight="600">$120M</text>
+
+            <!-- $100M -->
+            <line x1="55" y1="180" x2="490" y2="180" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="45" y="184" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="end" font-weight="600">$100M</text>
+
+            <!-- $80M -->
+            <line x1="55" y1="220" x2="490" y2="220" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="45" y="224" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="end" font-weight="600">$80M</text>
+
+            <!-- Shaded Area Under Curve -->
+            <path d="M70,240 Q150,230 220,185 T370,120 T470,20 L470,240 Z" fill="url(#modalAumAreaGrad)" />
+
+            <!-- Main Dynamic Growth Curve -->
+            <path d="M70,240 Q150,230 220,185 T370,120 T470,20" fill="none" stroke="url(#modalAumLineGrad)" stroke-width="4" stroke-linecap="round" />
+
+            <!-- Milestones Interactive Nodes -->
+            <!-- 2021 Node ($42M) -->
+            <circle cx="70" cy="240" r="5.5" fill="#152d20" stroke="#d4b290" stroke-width="2.5" />
+            <text x="70" y="258" fill="rgba(255,255,255,0.7)" font-size="10" text-anchor="middle" font-weight="700">2021</text>
+
+            <!-- 2022 Node ($72M) -->
+            <circle cx="220" cy="185" r="5.5" fill="#152d20" stroke="#d4b290" stroke-width="2.5" />
+            <text x="220" y="258" fill="rgba(255,255,255,0.7)" font-size="10" text-anchor="middle" font-weight="700">2023</text>
+
+            <!-- 2024 Node ($120M) -->
+            <circle cx="370" cy="120" r="6" fill="#152d20" stroke="#d4b290" stroke-width="2.5" />
+            <text x="370" y="258" fill="rgba(255,255,255,0.7)" font-size="10" text-anchor="middle" font-weight="700">2025</text>
+
+            <!-- 2026 Target Node ($180M+) -->
+            <circle cx="470" cy="20" r="8" fill="#52b788" stroke="#ffffff" stroke-width="3" />
+            <text x="470" y="258" fill="#52b788" font-size="10" text-anchor="middle" font-weight="800">2026</text>
+          </svg>
+
+        </div>
+
+        <!-- Bottom Feature Highlight Banner -->
+        <div style="background: rgba(14, 28, 20, 0.95); border: 1px solid rgba(224, 176, 132, 0.4); border-radius: 999px; padding: 0.65rem 1.35rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem; font-weight: 800; color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 22px; height: 22px; border-radius: 50%; background: #f4a261; color: #1e130b; display: flex; align-items: center; justify-content: center; font-size: 0.72rem;">★</div>
+            <span>CPI Advantage: Ground-up BTR Development</span>
+          </div>
+          <i class="fa-solid fa-chevron-up" style="font-size: 0.7rem; color: #e0b084;"></i>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Full-Screen Annual Portfolio Report Modal Overlay end -->
 
   <!-- Floating Slide-In Diligence Contact Drawer start -->
   <div id="floating-contact-drawer" style="position: fixed; top: 50%; right: 0; transform: translateY(-50%) translateX(115%); z-index: 99998; width: 400px; max-width: 92vw; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease; opacity: 0; pointer-events: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
@@ -2550,6 +2630,40 @@
 
   <script>
     let isDrawerManuallyClosed = false;
+
+    function openPortfolioGrowthModal() {
+      const modal = document.getElementById('portfolio-growth-modal');
+      if (modal) {
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePortfolioGrowthModal() {
+      const modal = document.getElementById('portfolio-growth-modal');
+      if (modal) {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close growth modal on clicking backdrop or pressing Escape
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('portfolio-growth-modal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closePortfolioGrowthModal();
+          }
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closePortfolioGrowthModal();
+          closeFloatingContactForm();
+        }
+      });
+    });
 
     function openFloatingContactForm(e) {
       if (e) e.preventDefault();
