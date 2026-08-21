@@ -2383,7 +2383,7 @@
       </section>
       <!-- Modern Tinted Mix-Blend Wavy Flowing Newsletter Section end -->
 
-      <section data-nav="" data-w-id="23b5626e-f22f-9d2a-ce15-a7cd7d8baaf7" class="section_cta">
+      <section id="contact" data-nav="" data-w-id="23b5626e-f22f-9d2a-ce15-a7cd7d8baaf7" class="section_cta">
         <div class="bg-wrap"><img src="images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588.avif"
             loading="lazy" sizes="100vw"
             srcset="images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588-p-500.avif 500w, images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588-p-800.avif 800w, images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588-p-1080.avif 1080w, images/68fa0467a44e0a7eb3da1c5c_a32952438f7ab52fbaea480dc9a8e0748351d588.avif 2000w"
@@ -2394,7 +2394,7 @@
           <div class="container">
             <div class="cta_wrap">
               <div class="w-layout-hflex header-center is-cta">
-                <h2 words="" class="h-64">Let's Connect</h2><a href="#" data-wf--button--variant="base"
+                <h2 words="" class="h-64">Let's Connect</h2><a href="#contact" onclick="openFloatingContactForm(event)" data-wf--button--variant="base"
                   data-w-id="b99ddc98-411d-ead4-2a4d-1c20d1214eeb" class="button btn-arrow w-inline-block">
                   <div>Get in Touch</div>
                   <div class="icon-arrow">
@@ -3055,24 +3055,135 @@
 
     </div>
 
+  <!-- Floating Slide-In Diligence Contact Drawer start -->
+  <div id="floating-contact-drawer" style="position: fixed; top: 50%; right: 0; transform: translateY(-50%) translateX(115%); z-index: 99998; width: 400px; max-width: 92vw; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease; opacity: 0; pointer-events: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <style>
+      #floating-contact-drawer.is-active {
+        transform: translateY(-50%) translateX(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .floating-form-input:focus {
+        border-color: #e0b084 !important;
+        background: rgba(255, 255, 255, 0.16) !important;
+      }
+    </style>
+
+    <div style="background: rgba(26, 18, 14, 0.97); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border: 1px solid rgba(224, 176, 132, 0.35); border-right: none; border-radius: 1.75rem 0 0 1.75rem; padding: 2.2rem 2rem; box-shadow: -20px 0 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(224, 176, 132, 0.15); color: #ffffff; position: relative;">
+      
+      <!-- Drawer Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 0.85rem;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #74c69d; margin-bottom: 3px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #74c69d; animation: livePulseDot 2s infinite;"></span>
+            Direct Principal Access
+          </div>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">
+            Schedule Diligence Call
+          </h3>
+        </div>
+        <button onclick="closeFloatingContactForm()" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); width: 30px; height: 30px; border-radius: 50%; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.82rem; transition: background 0.2s ease;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Intro Subtitle -->
+      <p style="font-size: 0.84rem; color: rgba(255, 255, 255, 0.8); line-height: 1.5; margin-bottom: 1.25rem;">
+        Connect directly with CPI Capital managing partners to review active Sunbelt offerings and LP allocations.
+      </p>
+
+      <!-- Form Inputs -->
+      <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you! A CPI Capital investment director will contact you within 24 hours.'); closeFloatingContactForm();" style="display: flex; flex-flow: column; gap: 0.85rem;">
+        
+        <div>
+          <input type="text" required placeholder="Full Name *" class="floating-form-input" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.75rem; color: #ffffff; font-size: 0.88rem; outline: none; transition: all 0.2s ease;">
+        </div>
+
+        <div>
+          <input type="email" required placeholder="Primary Email *" class="floating-form-input" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.75rem; color: #ffffff; font-size: 0.88rem; outline: none; transition: all 0.2s ease;">
+        </div>
+
+        <div>
+          <input type="tel" placeholder="Phone / WhatsApp (Optional)" class="floating-form-input" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.75rem; color: #ffffff; font-size: 0.88rem; outline: none; transition: all 0.2s ease;">
+        </div>
+
+        <div>
+          <select class="floating-form-input" style="width: 100%; padding: 0.75rem 1rem; background: #261b15; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.75rem; color: #ffffff; font-size: 0.85rem; outline: none;">
+            <option value="50k-100k">Planned Investment: $50,000 – $100,000</option>
+            <option value="100k-250k" selected>Planned Investment: $100,000 – $250,000</option>
+            <option value="250k-500k">Planned Investment: $250,000 – $500,000</option>
+            <option value="500k-plus">Planned Investment: $500,000+ / Institutional</option>
+          </select>
+        </div>
+
+        <button type="submit" style="margin-top: 0.35rem; width: 100%; padding: 0.85rem 1.25rem; background: linear-gradient(90deg, #d4b290, #f4a261); color: #362419; font-weight: 800; font-size: 0.88rem; border: none; border-radius: 999px; cursor: pointer; box-shadow: 0 8px 24px rgba(244, 162, 97, 0.35); transition: transform 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.04em;">
+          <span>Request Private Briefing</span>
+          <i class="fa-solid fa-arrow-right" style="font-size: 0.78rem;"></i>
+        </button>
+      </form>
+
+      <!-- Trust Assurance -->
+      <div style="margin-top: 1rem; font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+        <i class="fa-solid fa-shield-halved" style="color: #e0b084; font-size: 0.7rem;"></i>
+        <span>100% Confidential • Zero Obligation</span>
+      </div>
+
+    </div>
   </div>
+  <!-- Floating Slide-In Diligence Contact Drawer end -->
 
   <script>
-    function toggleGrowthWidget(open) {
-      const modal = document.getElementById('growth-card-modal');
-      const pill = document.getElementById('growth-pill-btn');
-      if (open) {
-        modal.classList.remove('is-hidden');
-        modal.classList.add('is-visible');
-        pill.style.display = 'none';
-      } else {
-        modal.classList.remove('is-visible');
-        modal.classList.add('is-hidden');
-        pill.style.display = 'flex';
+    let isDrawerManuallyClosed = false;
+
+    function openFloatingContactForm(e) {
+      if (e) e.preventDefault();
+      const drawer = document.getElementById('floating-contact-drawer');
+      if (drawer) {
+        drawer.classList.add('is-active');
+        isDrawerManuallyClosed = false;
       }
     }
+
+    function closeFloatingContactForm() {
+      const drawer = document.getElementById('floating-contact-drawer');
+      if (drawer) {
+        drawer.classList.remove('is-active');
+        isDrawerManuallyClosed = true;
+      }
+    }
+
+    // Auto trigger slide-in when section_cta is in viewport, and slide-out when out of viewport
+    (function initContactViewportObserver() {
+      const ctaSection = document.querySelector('.section_cta');
+      const drawer = document.getElementById('floating-contact-drawer');
+      if (!ctaSection || !drawer) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!isDrawerManuallyClosed) {
+              drawer.classList.add('is-active');
+            }
+          } else {
+            drawer.classList.remove('is-active');
+            isDrawerManuallyClosed = false; // Reset so next time it scrolls into view, it triggers again
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      observer.observe(ctaSection);
+
+      // Connect all "Get in Touch" / "#contact" links to open the drawer
+      document.querySelectorAll('a[href="#contact"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          openFloatingContactForm(e);
+        });
+      });
+    })();
   </script>
-  <!-- Floating Sticky YoY Growth Widget end -->
 
 </body>
 
