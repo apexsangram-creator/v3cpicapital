@@ -2299,21 +2299,21 @@
       }
     }, { passive: true });
   </script>
-  <!-- Floating Sticky YoY Growth Widget (Top Right) start -->
-  <div id="cpi-growth-widget" style="position: fixed; top: 52px; right: 24px; z-index: 99998; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-    
+
+  <!-- Floating Sticky Growth Graph Icon Widget (Sticky Fixed) start -->
+  <div id="cpi-growth-widget" style="position: fixed; top: 110px; right: 25px; z-index: 99990; font-family: Aspektavf, Arial, sans-serif;">
     <style>
       @keyframes livePulseDot {
         0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
         70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(82, 183, 136, 0); }
         100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
       }
-      #growth-pill-btn {
+      #growth-sticky-btn {
         transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
       }
-      #growth-pill-btn:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 25px rgba(82, 183, 136, 0.28) !important;
+      #growth-sticky-btn:hover {
+        transform: translateY(-3px) scale(1.08);
+        box-shadow: 0 14px 32px rgba(78, 57, 46, 0.5), 0 0 22px rgba(212, 178, 144, 0.4) !important;
       }
       #portfolio-growth-modal {
         transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
@@ -2336,35 +2336,14 @@
       }
     </style>
 
-    <!-- Top-Right Growth Pill Trigger -->
-    <div id="growth-pill-btn" onclick="openPortfolioGrowthModal()" style="background: rgba(8, 22, 15, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(82, 183, 136, 0.45); border-radius: 1rem; padding: 0.55rem 1.1rem; display: flex; align-items: center; gap: 10px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(82, 183, 136, 0.15); user-select: none;">
-      
-      <!-- Green Icon with Pulsing Dot -->
-      <div style="position: relative; width: 34px; height: 34px; border-radius: 0.6rem; background: rgba(82, 183, 136, 0.15); border: 1px solid rgba(82, 183, 136, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-        <i class="fa-solid fa-chart-line" style="color: #52b788; font-size: 1rem;"></i>
-        <span style="position: absolute; top: -3px; right: -3px; width: 7px; height: 7px; border-radius: 50%; background: #52b788; animation: livePulseDot 2s infinite;"></span>
-      </div>
-
-      <!-- Text Content -->
-      <div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="background: #d4b290; color: #1e130b; font-size: 0.6rem; font-weight: 800; padding: 0.12rem 0.45rem; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase;">GROWTH UPDATE</span>
-          <span style="color: #52b788; font-size: 0.72rem; font-weight: 800;">+50% YoY AUM</span>
-        </div>
-        <div style="font-size: 0.8rem; font-weight: 700; color: #ffffff; margin-top: 2px;">
-          Target IRR: <span style="color: #e0b084; font-weight: 800;">20.1% – 26.7%</span>
-        </div>
-      </div>
-
-      <!-- Right Chevron -->
-      <div style="margin-left: 2px;">
-        <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: #e0b084;"></i>
-      </div>
-
+    <!-- Sticky Graph Button Trigger -->
+    <div id="growth-sticky-btn" onclick="openPortfolioGrowthModal(event)" role="button" title="View Portfolio Growth &amp; Performance" style="background: linear-gradient(135deg, #4e392e 0%, #291c14 100%); border: 1.5px solid #d4b290; border-radius: 50%; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #ffffff; box-shadow: 0 10px 25px rgba(78, 57, 46, 0.4), 0 0 18px rgba(212, 178, 144, 0.25); position: relative; user-select: none;">
+      <i class="fa-solid fa-chart-line" style="color: #f4a261; font-size: 1.15rem;"></i>
+      <span style="position: absolute; top: 1px; right: 1px; width: 9px; height: 9px; border-radius: 50%; background: #52b788; border: 2px solid #291c14; animation: livePulseDot 2s infinite;"></span>
     </div>
 
   </div>
-  <!-- Floating Sticky YoY Growth Widget end -->
+  <!-- Floating Sticky Growth Graph Icon Widget end -->
 
   <!-- Floating Sticky CPI Advantage Widget (Bottom Right) start -->
   <div id="cpi-advantage-widget" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
@@ -2471,7 +2450,7 @@
   <!-- Floating Sticky CPI Advantage Widget end -->
 
   <!-- Full-Screen Annual Portfolio Report Modal Overlay start -->
-  <div id="portfolio-growth-modal" style="position: fixed; inset: 0; z-index: 100000; background: rgba(4, 10, 7, 0.94); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; visibility: hidden; font-family: Aspektavf, Arial, sans-serif;">
+  <div id="portfolio-growth-modal" onclick="if(event.target === this) closePortfolioGrowthModal()" style="position: fixed; inset: 0; z-index: 100000; background: rgba(4, 10, 7, 0.94); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; visibility: hidden; font-family: Aspektavf, Arial, sans-serif;">
     
     <!-- Modal Card Container -->
     <div class="modal-dialog-content" style="position: relative; width: 1240px; max-width: 95vw; max-height: 92vh; overflow-y: auto; background: radial-gradient(circle at 15% 20%, #152d20 0%, #0c1811 50%, #060b08 100%); border: 1px solid rgba(82, 183, 136, 0.35); border-radius: 2rem; padding: 3.25rem 3.5rem; box-shadow: 0 35px 90px rgba(0, 0, 0, 0.8), 0 0 50px rgba(82, 183, 136, 0.15); color: #ffffff; display: grid; grid-template-columns: 1fr 1.2fr; gap: 3.5rem; align-items: center; font-family: Aspektavf, Arial, sans-serif;">
@@ -3152,6 +3131,33 @@
     function prevWealthStep() {
       switchWealthStep((currentWealthStep - 1 + wealthStages.length) % wealthStages.length);
     }
+
+    // Portfolio Growth Graph Modal Toggle Functions
+    function openPortfolioGrowthModal(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var modal = document.getElementById('portfolio-growth-modal');
+      if (modal) {
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePortfolioGrowthModal() {
+      var modal = document.getElementById('portfolio-growth-modal');
+      if (modal) {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Global Escape Key Listener for Modals
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePortfolioGrowthModal();
+        if (typeof closeFloatingContactForm === 'function') closeFloatingContactForm();
+        if (typeof toggleCpiAdvantageCard === 'function') toggleCpiAdvantageCard(false);
+      }
+    });
   </script>
 
 </body>
