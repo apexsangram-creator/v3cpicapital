@@ -2281,6 +2281,131 @@
   </div>
   <!-- Floating Sticky Growth Graph Icon Widget end -->
 
+  <!-- Floating Sticky Webinar Masterclass Widget (Bottom Left) start -->
+  <div id="cpi-webinar-widget" style="position: fixed; bottom: 25px; left: 25px; z-index: 99995; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <style>
+      @keyframes pulseWebinarDot {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 180, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(0, 210, 180, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 180, 0); }
+      }
+      #webinar-sticky-btn {
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      }
+      #webinar-sticky-btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 16px 36px rgba(12, 20, 44, 0.6), 0 0 20px rgba(0, 210, 180, 0.3) !important;
+        border-color: rgba(0, 210, 180, 0.8) !important;
+      }
+      #webinar-modal-overlay {
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+      }
+      #webinar-modal-overlay.is-open {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+      #webinar-modal-overlay.is-open .webinar-modal-card {
+        transform: scale(1) translateY(0) !important;
+      }
+      .webinar-modal-card {
+        transform: scale(0.92) translateY(20px);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .close-webinar-modal-btn:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+        transform: rotate(90deg);
+      }
+      @media (max-width: 900px) {
+        .webinar-modal-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+
+    <!-- Sticky Floating Pill Trigger Button on Left -->
+    <div id="webinar-sticky-btn" onclick="openWebinarModal(event)" role="button" title="Open Webinar Masterclass" style="background: rgba(12, 20, 44, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1.5px solid rgba(0, 210, 180, 0.5); border-radius: 999px; padding: 0.6rem 1.15rem; display: flex; align-items: center; gap: 10px; cursor: pointer; color: #ffffff; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 18px rgba(0, 210, 180, 0.18); user-select: none;">
+      <!-- Play Icon with Pulsing Dot -->
+      <div style="position: relative; width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 210, 180, 0.18); border: 1px solid rgba(0, 210, 180, 0.45); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <i class="fa-solid fa-play" style="color: #00d2b4; font-size: 0.72rem; margin-left: 2px;"></i>
+        <span style="position: absolute; top: -2px; right: -2px; width: 7px; height: 7px; border-radius: 50%; background: #00d2b4; animation: pulseWebinarDot 2s infinite;"></span>
+      </div>
+      <!-- Text -->
+      <div style="font-size: 0.84rem; font-weight: 700; color: #ffffff; white-space: nowrap;">
+        <span style="color: #00d2b4;">Webinar:</span> Masterclass
+      </div>
+      <!-- Indicator Icon -->
+      <div style="margin-left: 2px; width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center;">
+        <i class="fa-solid fa-expand" style="font-size: 0.62rem; color: #00d2b4;"></i>
+      </div>
+    </div>
+  </div>
+  <!-- Floating Sticky Webinar Masterclass Widget (Bottom Left) end -->
+
+  <!-- Webinar Masterclass Full Modal (Open/Closable from anywhere) -->
+  <div id="webinar-modal-overlay" onclick="if(event.target === this) closeWebinarModal()" style="position: fixed; inset: 0; z-index: 100001; background: rgba(4, 10, 20, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; visibility: hidden; font-family: Aspektavf, Arial, sans-serif;">
+    <div class="webinar-modal-card" style="position: relative; width: 100%; max-width: 1020px; max-height: 90vh; overflow-y: auto; border-radius: 1.5rem; background: #0c142c; border: 1.5px solid rgba(0, 210, 180, 0.3); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 180, 0.15);">
+      
+      <!-- Close Button -->
+      <button type="button" onclick="closeWebinarModal()" class="close-webinar-modal-btn" title="Close" style="position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all 0.25s ease;">
+        <i class="fa-solid fa-xmark" style="font-size: 1.1rem;"></i>
+      </button>
+
+      <!-- Exact Banner Layout Inside Modal -->
+      <div class="webinar-modal-grid" style="display: grid; grid-template-columns: 1fr 1.08fr; align-items: stretch; min-height: 460px;">
+        
+        <!-- Left Side: Dark Navy Content -->
+        <div style="padding: 3.25rem 2.75rem 3rem 3.25rem; display: flex; flex-direction: column; justify-content: center; z-index: 2; background: #0c142c;">
+          
+          <!-- Brand Badge -->
+          <div style="display: inline-flex; align-items: center; gap: 12px; margin-bottom: 1.75rem;">
+            <div style="border: 1.5px solid #ffffff; padding: 4px 7px; font-size: 0.8rem; font-weight: 800; color: #ffffff; letter-spacing: 0.05em; line-height: 1.1; text-align: center;">
+              CPI<br><span style="font-size: 0.48rem; font-weight: 600; letter-spacing: 0.12em; display: block; margin-top: 1px;">CAPITAL</span>
+            </div>
+            <div>
+              <div style="font-size: 1.1rem; font-weight: 900; color: #ffffff; letter-spacing: 0.08em; display: flex; align-items: center; gap: 1px; line-height: 1;">
+                WEBIN<span style="color: #00d2b4; font-size: 0.8rem; margin: 0 1px;">▶</span>R
+              </div>
+              <div style="border: 1px solid #00d2b4; color: #00d2b4; font-size: 0.52rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; padding: 1px 5px; margin-top: 3px; display: inline-block; line-height: 1.1;">
+                MASTERCLASS
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Heading -->
+          <h2 style="font-size: 2.75rem; font-weight: 700; color: #ffffff; letter-spacing: 0.04em; line-height: 1.1; margin: 0 0 1.75rem 0; font-family: 'Playfair Display', Georgia, serif; text-transform: uppercase;">
+            WEBINAR<br>MASTERCLASS
+          </h2>
+
+          <!-- Turquoise Button -->
+          <div style="margin-bottom: 1.75rem; max-width: 360px;">
+            <a href="#contact" onclick="closeWebinarModal(); openFloatingContactForm(event);" style="display: block; background: #1eb89a; border-radius: 4px; padding: 0.95rem 1.25rem; text-decoration: none; text-align: center; transition: all 0.25s ease; box-shadow: 0 8px 24px rgba(30, 184, 154, 0.35);" onmouseover="this.style.background='#19a388'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#1eb89a'; this.style.transform='none'">
+              <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.2;">
+                UNLOCK FREE ACCESS
+              </div>
+              <div style="font-size: 0.78rem; font-weight: 500; color: rgba(255, 255, 255, 0.92); margin-top: 4px; letter-spacing: 0.02em;">
+                Transformative Resources and Insights
+              </div>
+            </a>
+          </div>
+
+          <!-- Description -->
+          <p style="font-size: 0.88rem; color: #c0ccdf; line-height: 1.6; margin: 0; max-width: 440px; font-weight: 400;">
+            Access data-packed webinar replays, underwriting mastery, using AI for CRE, strategic capital raising, and much more.
+          </p>
+
+        </div>
+
+        <!-- Right Side: Speaker Team Image -->
+        <div style="position: relative; display: flex; align-items: flex-end; justify-content: flex-end; overflow: hidden; background: #0c142c;">
+          <img src="images/Screenshot_9%20copy.png" alt="CPI Capital Leadership &amp; Speakers" style="width: 100%; height: 100%; object-fit: cover; object-position: left bottom; display: block;">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <!-- Floating Sticky CPI Advantage Widget (Bottom Right) start -->
   <div id="cpi-advantage-widget" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
     
@@ -2726,6 +2851,23 @@
       }
     }
 
+    function openWebinarModal(e) {
+      if (e) e.stopPropagation();
+      const modal = document.getElementById('webinar-modal-overlay');
+      if (modal) {
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeWebinarModal() {
+      const modal = document.getElementById('webinar-modal-overlay');
+      if (modal) {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+
     // Close modals on clicking backdrop or pressing Escape
     document.addEventListener('DOMContentLoaded', () => {
       const modal = document.getElementById('portfolio-growth-modal');
@@ -2736,9 +2878,18 @@
           }
         });
       }
+      const webinarModal = document.getElementById('webinar-modal-overlay');
+      if (webinarModal) {
+        webinarModal.addEventListener('click', (e) => {
+          if (e.target === webinarModal) {
+            closeWebinarModal();
+          }
+        });
+      }
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           closePortfolioGrowthModal();
+          closeWebinarModal();
           closeFloatingContactForm();
           toggleCpiAdvantageCard(false);
         }
