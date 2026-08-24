@@ -3126,8 +3126,11 @@ blockquote {
 
 .line-logo {
   filter: grayscale();
-  height: 2.5rem;
-  transition: background-color .3s;
+  height: 3.5rem;
+  max-width: 220px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: filter .3s, transform .3s;
 }
 
 .line-logo:hover {
@@ -5616,7 +5619,8 @@ blockquote {
   }
 
   .line-logo {
-    height: 1.75rem;
+    height: 2.25rem;
+    max-width: 160px;
   }
 
   .line-logo.is-big {
