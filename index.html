@@ -2266,13 +2266,57 @@
           border-color: #f4a261;
         }
       }
+      .growth-interactive-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        cursor: pointer;
+        text-decoration: none;
+      }
       #growth-sticky-btn {
         animation: graphBtnGlowLoop 3s ease-in-out infinite;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
       }
-      #growth-sticky-btn:hover {
-        transform: translateY(-3px) scale(1.1);
+      .growth-interactive-wrapper:hover #growth-sticky-btn {
+        transform: translateY(-2px) scale(1.08);
         box-shadow: 0 14px 32px rgba(78, 57, 46, 0.6), 0 0 25px rgba(244, 162, 97, 0.6) !important;
+        border-color: #f4a261 !important;
+      }
+      .growth-hover-badge {
+        background: rgba(30, 20, 14, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1.5px solid rgba(212, 178, 144, 0.45);
+        color: #ffffff;
+        padding: 9px 16px 9px 18px;
+        border-radius: 30px;
+        font-size: 0.83rem;
+        font-weight: 600;
+        letter-spacing: 0.25px;
+        white-space: nowrap;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 15px rgba(212, 178, 144, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(18px) scale(0.94);
+        transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        user-select: none;
+      }
+      .growth-hover-badge .growth-badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #f4a261;
+        box-shadow: 0 0 8px #f4a261;
+        display: inline-block;
+      }
+      .growth-interactive-wrapper:hover .growth-hover-badge {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0) scale(1);
       }
       .growth-icon-animated {
         display: inline-block;
@@ -2313,10 +2357,18 @@
       }
     </style>
 
-    <!-- Sticky Graph Button Trigger with Lottie Animation -->
-    <div id="growth-sticky-btn" onclick="openPortfolioGrowthModal(event)" role="button" title="View Portfolio Growth &amp; Performance" style="background: linear-gradient(135deg, #4e392e 0%, #291c14 100%); border: 1.5px solid #d4b290; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #ffffff; position: relative; user-select: none; overflow: visible;">
-      <div id="growth-lottie-container"></div>
-      <span style="position: absolute; top: 1px; right: 1px; width: 10px; height: 10px; border-radius: 50%; background: #52b788; border: 2px solid #291c14; animation: livePulseDot 2s infinite; z-index: 2;"></span>
+    <div class="growth-interactive-wrapper" onclick="openPortfolioGrowthModal(event)" role="button" title="View Portfolio Growth &amp; Performance">
+      <!-- Sliding out Badge on Hover (Slides out to the left) -->
+      <div class="growth-hover-badge">
+        <span class="growth-badge-dot"></span>
+        <span>Portfolio Growth &amp; Performance</span>
+      </div>
+
+      <!-- Sticky Graph Button Trigger with Lottie Animation -->
+      <div id="growth-sticky-btn" style="background: linear-gradient(135deg, #4e392e 0%, #291c14 100%); border: 1.5px solid #d4b290; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #ffffff; position: relative; user-select: none; flex-shrink: 0; overflow: visible;">
+        <div id="growth-lottie-container"></div>
+        <span style="position: absolute; top: 1px; right: 1px; width: 10px; height: 10px; border-radius: 50%; background: #52b788; border: 2px solid #291c14; animation: livePulseDot 2s infinite; z-index: 2;"></span>
+      </div>
     </div>
 
   </div>
